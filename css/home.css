@@ -1,0 +1,52 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Josefin+Sans:ital,wght@0,600;0,700;1,600;1,700&display=swap');
+
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+.nav__bar{
+    font-family: Inter;
+    font-weight: 600;
+    height: 50px;
+    display: flex;
+    text-decoration: none;
+    background-color: #00C2FF;
+    align-items: center;
+    justify-content: space-around;
+}
+.nav__bar ul{
+    display: inline-flex;
+}
+.nav__bar ul li{
+    text-decoration: none;
+    list-style: none;
+    padding: 20px;
+    color: aliceblue;
+}
+
+.nav__icons{
+    color: aliceblue;
+}
+.nav__logo{
+    padding: 20px;
+    margin: 20px;
+}
+
+
+
+
+.upper__menu{
+    height: 30px;
+    background-color: rgb(246, 249, 252);
+    padding: 5px 20px 5px 20px;
+    justify-content: right;
+}
+
+.upper__menu a{
+    color: #00C2FF;
+    font-family: Inter;
+    font-weight: 600;
+    
+}
