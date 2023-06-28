@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <title>Document</title>
+  <style>
+    .card {
+      transition: transform 0.3s ease-in-out;
+    }
+    .card.clicked {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm navbar-light bg-primary">
+		<div class="container-fluid">
+		  <ul class="navbar-nav ml-auto">
+			<li class="nav-item active">
+			  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="#">Profile</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="#">Item Description</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="#">Profile</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="#">About Us</a>
+			</li>
+		  </ul>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID" aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		</div>
+	  </nav>
+
+
+  <div class="container mx-auto mt-4">
+    <div class="row row-cols-3">
+      <!-- Card 1 -->
+      <div class="col">
+        <div class="card mb-4" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#productModal">View Details</button>
+            <p class="additional-text">Additional Text</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col">
+        <div class="card mb-4" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#productModal">View Details</button>
+            <p class="additional-text">Additional Text</p>
+          </div>
+        </div>
+      </div>
+
+ 
+       <!-- Card 3 -->
+       <div class="col">
+        <div class="card mb-4" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#productModal">View Details</button>
+            <p class="additional-text">Additional Text</p>
+          </div>
+        </div>
+      </div>
+
+    <!-- Card 4 -->
+    <div class="col">
+        <div class="card mb-4" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#productModal">View Details</button>
+            <p class="additional-text">Additional Text</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Card 5 -->
+       <div class="col">
+        <div class="card mb-4" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#productModal">View Details</button>
+            <p class="additional-text">Additional Text</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Card 6 -->
+       <div class="col">
+        <div class="card mb-4" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#productModal">View Details</button>
+            <p class="additional-text">Additional Text</p>
+          </div>
+        </div>
+      </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productModalLabel">Product Description</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="productDescription"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Function to load the description of the next card when "View Details" button is clicked
+    function loadNextCardDescription() {
+      // Get the current active card
+      var activeCard = document.querySelector('.card.active');
+
+      // Find the next sibling card
+      var nextCard = activeCard.nextElementSibling;
+      if (!nextCard) {
+        // If there is no next sibling, select the first card
+        nextCard = document.querySelector('.card:first-child');
+      }
+
+      // Get the description of the next card
+      var description = nextCard.querySelector('.card-text').textContent;
+
+      // Update the description in the modal
+      document.getElementById('productDescription').textContent = description;
+
+      // Add 'active' class to the next card
+      activeCard.classList.remove('active');
+      nextCard.classList.add('active');
+    }
+
+    // Event listener for the modal show event
+    document.getElementById('productModal').addEventListener('show.bs.modal', function () {
+      loadNextCardDescription();
+    });
+
+    // Event listener for clicking the "Additional Text" below the button
+    var additionalTexts = document.querySelectorAll('.additional-text');
+    additionalTexts.forEach(function (additionalText) {
+      var card = additionalText.closest('.card');
+
+      additionalText.addEventListener('click', function () {
+        card.classList.toggle('clicked');
+      });
+
+      additionalText.addEventListener('mouseout', function () {
+        card.classList.remove('clicked');
+      });
+    });
+  </script>
+</body>
+
+</html>
