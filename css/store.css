@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .rounded-rectangle {
+    position: absolute;
+    top: 125px;
+    left: 100px;
+    right: 50px;
+    width: 1150px;
+    height: 150px;
+    background-color:  #9EDEF9;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    align-items: center;
+  }
+
+  .spacer{
+    padding-left: 115px; /* Adds space to the left */
+  }
+
+  .corner-image {
+    position: absolute;
+    top: 25px;
+    right: 150px;
+    width: 100px;
+    height: 110px;
+  }
+
+  .ash-rectangle {
+    position: absolute;
+    top: 300px;
+    left: 100px;
+    right: 50px;
+    width: 165px;
+    height: 25px;
+    background-color:   #a9a9a9;
+    border-radius: 20px;
+    margin: 0 5px;
+    flex: 1;
+    
+  }
