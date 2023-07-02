@@ -15,6 +15,73 @@
     .card.clicked {
       transform: scale(1.2);
     }
+  .profile-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.div {
+  width: 100px;
+  height: 100px;
+  background: rgb(5, 226, 186);
+  transition: width 2s;
+  
+}
+
+
+.div:hover {
+  width: 1300px;
+}
+
+.search-bar {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+    }
+
+    .sort-button {
+      position: relative;
+    }
+
+    .sort-button .btn {
+      border-radius: 0;
+    }
+
+    .sort-button .dropdown-content {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      display: none;
+    }
+
+    .sort-button .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .sort-button .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .sort-button .show {
+      display: block;
+    }
   </style>
 </head>
 
@@ -44,89 +111,159 @@
 		  </button>
 		</div>
 	  </nav>
-
+<!--Adding Slide -->
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="jestin lol_vendor.jpg" class="d-block w-100" alt="jestin">
+    </div>
+    <div class="carousel-item">
+      <img src="projector_vendor.jpg" class="d-block w-100" alt="projector">
+    </div>
+    <div class="carousel-item">
+      <img src="media-entertainment_vendor.jpg" class="d-block w-100" alt="media-entertainment">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
   <div class="container mx-auto mt-4">
     <div class="row row-cols-3">
-      <!-- Card 1 -->
-      <div class="col">
-        <div class="card mb-4" style="width: 18rem;">
+     <!-- Card 1 -->
+     <div class="col">
+      <div class="card mb-4" style="width: 18rem;">
+        <div class="card-body">
+        
+          <h5 class="card-title">Vendor 1</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Ariuka's Shop</h6>
+          <p class="card-text">Ulaanbaatar, Ulaanbaatar MOngolia<br> Ulaanbaatar,<br>Han-Uul, Mongolia</p>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#productModal">View Details</button>
+          <p class="additional-text"><b>Contact Now</b></p>
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#productModal">View Details</button>
-            <p class="additional-text">Additional Text</p>
+            <!-- Card content -->
+            <a href="new-webpage-url.html" class="arrow-link">
+              <i class="fas fa-arrow-right"></i>
+              <img class="profile-icon" src="vendor1.png" alt="vendor1">
+            </a>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Card 2 -->
-      <div class="col">
-        <div class="card mb-4" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#productModal">View Details</button>
-            <p class="additional-text">Additional Text</p>
-          </div>
-        </div>
-      </div>
-
- 
-       <!-- Card 3 -->
-       <div class="col">
-        <div class="card mb-4" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#productModal">View Details</button>
-            <p class="additional-text">Additional Text</p>
-          </div>
-        </div>
-      </div>
-
-    <!-- Card 4 -->
+    <!-- Card 2 -->
     <div class="col">
-        <div class="card mb-4" style="width: 18rem;">
+      <div class="card mb-4" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Vendor 2</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Recycle Your Tresure</h6>
+          <p class="card-text">3093 Citrus Circle,<br>Walnut Cree,<br>California, United States (US)</p>  
+          <button class="btn btn-primary" data-toggle="modal" data-target="#productModal">View Details</button>
+          <p class="additional-text"><b>Contact Now</b></p>
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#productModal">View Details</button>
-            <p class="additional-text">Additional Text</p>
+            <!-- Card content -->
+            <a href="new-webpage-url.html" class="arrow-link">
+              <i class="fas fa-arrow-right"></i>
+              <img class="profile-icon" src="vendor1.png" alt="vendor1">
+            </a>
           </div>
         </div>
       </div>
+    </div>
 
-       <!-- Card 5 -->
-       <div class="col">
-        <div class="card mb-4" style="width: 18rem;">
+
+     <!-- Card 3 -->
+     <div class="col">
+      <div class="card mb-4" style="width: 18rem;">
+        <div class="card-body">
+        
+          <h5 class="card-title">Vendor 3</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Test Shop</h6>
+          <p class="card-text">TEST, TEST<br>nOIDA,<br>Arunachal Pradesh, India</p>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#productModal">View Details</button>
+          <p class="additional-text"><b>Contact Now</b></p>
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#productModal">View Details</button>
-            <p class="additional-text">Additional Text</p>
+            <!-- Card content -->
+            <a href="new-webpage-url.html" class="arrow-link">
+              <i class="fas fa-arrow-right"></i>
+              <img class="profile-icon" src="vendor1.png" alt="vendor1">
+            </a>
           </div>
         </div>
       </div>
+    </div>
 
-       <!-- Card 6 -->
-       <div class="col">
-        <div class="card mb-4" style="width: 18rem;">
+  <!-- Card 4 -->
+  <div class="col">
+      <div class="card mb-4" style="width: 18rem;">
+        <div class="card-body">
+      
+          <h5 class="card-title">Vendor 4 </h5>
+          <h6 class="card-subtitle mb-2 text-muted">Jack Burgasam</h6>
+          <p class="card-text">MVlaanbaatar, MVlaanbaatar MOngolia<br> MVlaanbaatar,<br>Han-Uul, Malayasia</p>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#productModal">View Details</button>
+          <p class="additional-text"><b>Contact Now</b></p>
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#productModal">View Details</button>
-            <p class="additional-text">Additional Text</p>
+            <!-- Card content -->
+            <a href="new-webpage-url.html" class="arrow-link">
+              <i class="fas fa-arrow-right"></i>
+              <img class="profile-icon" src="vendor1.png" alt="vendor1">
+            </a>
           </div>
         </div>
       </div>
+    </div>
 
+     <!-- Card 5 -->
+     <div class="col">
+      <div class="card mb-4" style="width: 18rem;">
+        <div class="card-body">
+         <h5 class="card-title">Vendor 5</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Peetor Janaetr</h6>
+          <p class="card-text">Rechechking Road<br>nOIDA,<br>Arunachal Pradesh, Pakistan</p>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#productModal">View Details</button>
+          <p class="additional-text"><b>Contact Now</b></p>
+          <div class="card-body">
+            <!-- Card content -->
+            <a href="new-webpage-url.html" class="arrow-link">
+              <i class="fas fa-arrow-right"></i>
+              <img class="profile-icon" src="vendor1.png" alt="vendor1">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <!-- Card 6 -->
+     <div class="col">
+      <div class="card mb-4" style="width: 18rem;">
+        <div class="card-body">
+         <h5 class="card-title">Vendor 6</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Yo Ichiro Chan</h6>
+          <p class="card-text">Lava Mountain Raod<br>nOIDA,<br>Nagayo flower mawatha, jAPAN</p>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#productModal">View Details</button>
+          <p class="additional-text"><b>Contact Now</b></p>
+          <div class="card-body">
+            <!-- Card content -->
+            <a href="new-webpage-url.html" class="arrow-link">
+              <i class="fas fa-arrow-right"></i>
+              <img class="profile-icon" src="vendor1.png" alt="vendor1">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   <!-- Modal -->
   <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
