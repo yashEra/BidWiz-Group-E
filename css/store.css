@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #f8f8f8;
+  font-family: "Open Sans", sans-serif;
+}
+
+.rounded-rectangle {
+  position: absolute;
+  top: 125px;
+  left: 100px;
+  right: 50px;
+  width: 1150px;
+  height: 150px;
+  background-color: #9EDEF9;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  align-items: center;
+}
+
+.spacer {
+  padding-left: 115px;
+  /* Adds space to the left */
+}
+
+.corner-image {
+  position: absolute;
+  top: 25px;
+  right: 150px;
+  width: 100px;
+  height: 110px;
+}
+
+.ash-rectangle {
+  position: absolute;
+  top: 300px;
+  left: 100px;
+  right: 50px;
+  width: 165px;
+  height: 25px;
+  background-color: #a9a9a9;
+  border-radius: 20px;
+  margin: 0 5px;
+  flex: 1;
+
+}
+
+body {
+  margin-top: 20px;
+}
+
+.timeline-steps {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap
+}
+
+
+.timeline-steps .timeline-step {
+  top: 300px;
+  right: 35px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 1rem
+}
+
+@media (min-width:768px) {
+  .timeline-steps .timeline-step:not(:last-child):after {
+    content: "";
+    display: block;
+    border-top: .25rem dotted #35373a;
+    width: 3.46rem;
+    position: absolute;
+    left: 7.5rem;
+    top: .3125rem
+  }
+
+  .timeline-steps .timeline-step:not(:first-child):before {
+    content: "";
+    display: block;
+    border-top: .25rem dotted #35373a;
+    width: 3.8125rem;
+    position: absolute;
+    right: 7.5rem;
+    top: .3125rem
+  }
+}
+
+.timeline-steps .timeline-content {
+  width: 10rem;
+  text-align: center
+}
+
+.timeline-steps .timeline-content .inner-circle {
+  border-radius: 1.5rem;
+  height: 1rem;
+  width: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #35373a
+}
+
+.timeline-steps .timeline-content .inner-circle:before {
+  content: "";
+  background-color: #35373a;
+  display: inline-block;
+  height: 3rem;
+  width: 3rem;
+  min-width: 3rem;
+  border-radius: 6.25rem;
+  opacity: .5
+}
