@@ -9,9 +9,9 @@
 		html, body {
 			height: 100%;
 		}
-
 		.container {
 			display: flex;
+			flex-direction: column;
 			justify-content: center;
 			align-items: center;
 			height: 100%;
@@ -20,14 +20,26 @@
 		.form-container {
 			border: 1px solid #ccc;
 			padding: 20px;
-			margin-bottom: 20px;
 			border-radius: 5px;
-			width: 400px;
+			width: 600px;
 		}
         
         .title {
             margin-bottom: 20px;
         }
+		.register-button {
+			margin-top: 20px;
+		}
+		.signup-container {
+			margin-top: 20px; 
+			display: flex;
+			align-items: center;
+		}
+
+		.signup-container p {
+			margin-right: 50px; 
+		}
+		
 	</style>
 </head>
 <body>
@@ -46,7 +58,7 @@
 			<li class="nav-item">
 			  <a class="nav-link" href="#">Profile</a>
 			</li>
-			<li class="nav-item">
+			 <li class="nav-item">
 			  <a class="nav-link" href="#">About Us</a>
 			</li>
 		  </ul>
@@ -54,17 +66,23 @@
 			<span class="navbar-toggler-icon"></span>
 		  </button>
 		</div>
-	  </nav>
-<!--Centralizing the form text center-->
-	  <div class="container">
+	</nav>
+
+	<div class="container">
 		<div class="form-container">
 			<h1 class="text-center title">Online Auction</h1>
 			<h2 class="text-center">Register</h2>
 			<form action="#" method="post">
-				<div class="form-group">
-					<label for="name">Name:</label>
-					<input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
-				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="first-name">First Name:</label>
+						<input type="text" class="form-control" id="first-name" placeholder="Enter first name" name="first-name">
+					</div>
+					<div class="form-group col-md-6">
+						<label for="last-name">Last Name:</label>
+						<input type="text" class="form-control" id="last-name" placeholder="Enter last name" name="last-name">
+					</div>
+				    </div>
 				<div class="form-group">
 					<label for="email">Email address:</label>
 					<input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
@@ -77,20 +95,16 @@
 					<label for="pwd">Confirm Password:</label>
 					<input type="password" class="form-control" id="pwd" placeholder="Confirm password" name="confirm-pwd">
 				</div>
-				<div class="form-check">
-					<label class="form-check-label">
-						<input class="form-check-input" type="radio" name="remember">I am a Customer
-					</label>
+				<div class="form-group col-md-1 text-left">
+					<button type="submit" class="btn btn-primary register-button">Register</button>
 				</div>
-				<div class="form-check">
-					<label class="form-check-label">
-						<input class="form-check-input" type="radio" name="remember">I am a Vendor
-					</label>
-				</div>
-				<button type="submit" class="btn btn-primary">Register</button>
+			
+			
 			</form>
-				</div>
-			</div>
+		</div>
+		<div class="signup-container">
+			<p>If you are not a registered customer, join now for free today!</p>
+			<a href="#" class="btn btn-primary">Join Today</a>
 		</div>
 	</div>
 </body>
