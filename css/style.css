@@ -1,0 +1,14 @@
+.iframe__footer{
+  height:400px;
+  width:100%;
+  border:none;
+}
+
+@media screen and (max-width:1000px) {
+  .iframe__footer{
+    height:1200px;
+    width:100%;
+    border:none;
+  }
+  
+}

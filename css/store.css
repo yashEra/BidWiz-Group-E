@@ -8,14 +8,15 @@ body {
   .rounded-rectangle {
     position: absolute;
     top: 125px;
-    left: 100px;
-    right: 50px;
-    width: 1150px;
+    left: 10%;
+    right: 10%;
+    width:80%;
     height: 150px;
     background-color: #9EDEF9;
     border-top-left-radius: 50px;
     border-bottom-right-radius: 50px;
     align-items: center;
+    justify-content: center;
   }
 
   .spacer {
@@ -53,7 +54,7 @@ body {
   margin: 1rem
 }
 
-@media (min-width:768px) {
+@media screen and (max-width:1000px) {
   .timeline-steps .timeline-step:not(:last-child):after {
     content: "";
     display: block;
@@ -72,6 +73,14 @@ body {
     position: absolute;
     right: 7.5rem;
     top: .3125rem
+  }
+    .rounded-rectangle {
+    display: block;
+
+    border-radius: none;
+    overflow: hidden;
+    /* border-top-left-radius:0px;
+    border-bottom-right-radius: 0px; */
   }
 }
 
