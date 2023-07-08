@@ -42,6 +42,7 @@ header{
 .input-field .input{
     height: 45px;
     width: 87%;
+    margin-bottom: 6%;
     border: none;
     border-radius: 30px;
     color: #fff;
