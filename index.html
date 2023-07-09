@@ -1,68 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-	<!-- <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <title>BidWiz</title>
-</head>
-<body>
-    <section class="ftco-section">
-		<div class="container">
-			<nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
-		    <div class="container">
-		    	<a class="navbar-brand" href="index.html">Digital</a>
-		    	<div class="social-media order-lg-last">
-		    		<p class="mb-0 d-flex">
-		    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
-		    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
-		    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
-		    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
-		    		</p>
-	        </div>
-		      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-		        <span class="fa fa-bars"></span> Menu
-		      </button>
-		      <div class="collapse navbar-collapse" id="ftco-nav">
-		        <ul class="navbar-nav ml-auto mr-md-3">
-		        	<li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
-		        	<li class="nav-item"><a href="#" class="nav-link">About</a></li>
-		        	<li class="nav-item"><a href="#" class="nav-link">Work</a></li>
-		        	<li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
-		          <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-		        </ul>
-		      </div>
-		    </div>
-		  </nav>
-    <!-- END nav -->
-  </div>
-
-	</section>
-    <div class="hero__container">
-        <div class="hero__section">
-            <h1>WATCH</h1>
-            <div class = "hero__items">
-                <div class = "item__container"><img src="images/items/hero-section/watch_tp3_new.png" width="200px" hight="auto" alt="Item"></div>
-                <div class = "item__container1"><img src="images/items/hero-section/watch_tp3_new.png" width="200px" hight="auto" alt="Item"></div>
-                <div class = "item__container2"><img src="images/items/hero-section/watch_tp3_new.png" width="200px" hight="auto" alt="Item"></div>
+  </head>
+  <body>
+    <div class="container">
+      <div class="forms-container">
+        <img class="header__image" src="main.svg" alt="" align="right" />
+        <div class="signin-signup">
+          <form action="#" class="sign-up-form">
+            <h2 class="title">Drop your words</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Name" />
             </div>
-            <div class="hero__button">
-                <button><a href="#" class="nav__icons"><i class="fa-solid fa-cart-shopping"></i>ADD TO CART</a></button>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="Email" />
             </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="textarea" placeholder="Massege....." />
+            </div>
+            <input type="submit" class="btn" value="Submit" />
+            <p class="social-text"></p>
+            <div class="social-media"></div>
+          </form>
         </div>
+      </div>
 
- <iframe frameborder="0" scrolling="no" style="height:400px;width:100%;border:none;" src='./html/footer.html'></iframe>
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>Who We are ?</h3>
+            <p>
+              BidWiz is an online auction website that provides a platform for
+              users to bid on a wide range of products and items.
+            </p>
+            <button class="btn transparent" id="sign-up-btn">Contact</button>
+          </div>
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>Have an any question ?</h3>
+            <p>
+              If you have any questions or inquiries, please fill out the form!.
+            </p>
+            <button class="btn transparent" id="sign-in-btn">Back</button>
+          </div>
+          <!-- <img src="img/register.svg" class="image" alt="" /> -->
+        </div>
+      </div>
+    </div>
+    <script>
+      const sign_in_btn = document.querySelector("#sign-in-btn");
+      const sign_up_btn = document.querySelector("#sign-up-btn");
+      const container = document.querySelector(".container");
+      const header__image = document.querySelector(".header__image");
 
-</body>
+      sign_up_btn.addEventListener("click", () => {
+        container.classList.add("sign-up-mode");
+        header__image.style.display = "none";
+      });
+
+      sign_in_btn.addEventListener("click", () => {
+        container.classList.remove("sign-up-mode");
+        header__image.style.display = "block";
+      });
+    </script>
+
+    <script src="app.js"></script>
+  </body>
 </html>

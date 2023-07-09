@@ -61,7 +61,7 @@ const product = [
 },
 {
 	id: 5,
-	image: '../images/items/catogories/gg-2.jpg',
+	image: '../images/items/catogories/hh-3.jpg',
 	title: 'Air Pods Pro',
 	price: 65,
 	category: 'airpods'
