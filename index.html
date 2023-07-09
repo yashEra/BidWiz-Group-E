@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="./css/product-card.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -13,8 +14,156 @@
     <title>BidWiz</title>
   </head>
   <body>
-    <iframe frameborder="0" scrolling="no" style="height:80px;width:100%;border:none;z-index: 1000;" src='./html/navbar.html'></iframe>
 
+    <navbar class="navbar__section">
+      <!--=============== HEADER ===============-->
+      <header class="nav__header">
+          <nav class="nav nav__container">
+              <div class="nav__data">
+                  <a href="#" class="nav__logo">
+                       BidWiz
+                  </a>
+  
+                  <div class="nav__toggle" id="nav-toggle">
+                      <i class="ri-menu-line nav__toggle-menu"></i>
+                      <i class="ri-close-line nav__toggle-close"></i>
+                  </div>
+              </div>
+
+              <!--=============== NAV MENU ===============-->
+              <div class="nav__menu" id="nav-menu">
+                  <ul class="nav__list">
+                      <li>
+                          <a href="#" class="nav__link">Home</a>
+                      </li>
+
+                      <!--=============== DROPDOWN 1 ===============-->
+                      <li class="dropdown__item">                      
+                          <div class="nav__link dropdown__button">
+                              Discover <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                          </div>
+
+                          <div class="dropdown__container">
+                              <div class="dropdown__content">
+                                  <div class="dropdown__group">
+
+  
+                                      <span class="dropdown__title">Electronic Items</span>
+  
+                                      <ul class="dropdown__list">
+                                          <li>
+                                              <a href="#" class="dropdown__link">HTML for beginners</a>
+                                          </li>
+                                          <li>
+                                              <a href="#" class="dropdown__link">Advanced CSS</a>
+                                          </li>
+                                          <li>
+                                              <a href="#" class="dropdown__link">JavaScript OOP</a>
+                                          </li>
+                                      </ul>
+                                  </div>
+  
+                                  <div class="dropdown__group">
+
+  
+                                      <span class="dropdown__title">Popular courses</span>
+  
+                                      <ul class="dropdown__list">
+                                          <li>
+                                              <a href="#" class="dropdown__link">Development with Flutter</a>
+                                          </li>
+                                          <li>
+                                              <a href="#" class="dropdown__link">Web development with React</a>
+                                          </li>
+                                          <li>
+                                              <a href="#" class="dropdown__link">Backend development expert</a>
+                                          </li>
+                                      </ul>
+                                  </div>
+  
+                                  <div class="dropdown__group">
+
+  
+                                      <span class="dropdown__title">Careers</span>
+  
+                                      <ul class="dropdown__list">
+                                          <li>
+                                              <a href="#" class="dropdown__link">Web development</a>
+                                          </li>
+                                          <li>
+                                              <a href="#" class="dropdown__link">Applications development</a>
+                                          </li>
+                                          <li>
+                                              <a href="#" class="dropdown__link">UI/UX design</a>
+                                          </li>
+                                          <li>
+                                              <a href="#" class="dropdown__link">Informatic security</a>
+                                          </li>
+                                      </ul>
+                                  </div>
+  
+                                  <div class="dropdown__group">
+
+  
+                                      <span class="dropdown__title">Certifications</span>
+  
+                                      <ul class="dropdown__list">
+                                          <li>
+                                              <a href="#" class="dropdown__link">Course certificates</a>
+                                          </li>
+                                          <li>
+                                              <a href="#" class="dropdown__link">Free certifications</a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+
+                      <!--=============== DROPDOWN 2 ===============-->
+                      <li class="dropdown__item">
+                          <div class="nav__link dropdown__button">
+                              Resources
+                          </div>
+
+                          <div class="dropdown__container">
+                              <div class="dropdown__content">
+                                  
+  
+                                  
+  
+                                 
+                              </div>
+                          </div>
+                      </li>
+
+                      <li>
+                          <a href="#" class="nav__link">Pricing</a>
+                      </li>
+
+                      <!--=============== DROPDOWN 3 ===============-->
+                      <li class="dropdown__item">                        
+                          <div class="nav__link dropdown__button">
+                              Company
+                          </div>
+
+                          <div class="dropdown__container">
+                              <div class="dropdown__content">
+                                  
+  
+                                  
+                              </div>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+          </nav>
+      </header>
+      
+      <!--=============== MAIN JS ===============-->
+      <script src="../js/navbar.js"></script>
+  </navbar>
+  
     <div class="container">
       <div class="forms-container">
         <img class="header__image" src="main.svg" alt="" align="right" />
@@ -131,6 +280,53 @@
     </section>
 
     <!-- ********************************************************************* -->
+
+    <section class="products">
+      <h2>Electronic Items</h2>
+      <div class="all-products">
+        <div class="product">
+          <img src="./images/home/product/AirPod.jpg">
+          <div class="product-info">
+            <h4 class="product-title">AirPod 2nd Gen
+            </h4>
+            <p class="product-price">$129</p>
+            <a class="product-btn" href="#">Buy Now</a>
+  
+          </div>
+        </div>
+        <div class="product">
+          <img src="./images/home/product/apple-watch-pcq.jpg">
+          <div class="product-info">
+            <h4 class="product-title">Apple Watch
+            </h4>
+            <p class="product-price">$299</p>
+            <a class="product-btn" href="#">Buy Now</a>
+  
+          </div>
+        </div>
+        <div class="product">
+          <img src="./images/home/product/iPhone-14.jpg">
+          <div class="product-info">
+            <h4 class="product-title">iPhone 14
+            </h4>
+            <p class="product-price">$999</p>
+            <a class="product-btn" href="#">Buy Now</a>
+  
+          </div>
+        </div>
+        <div class="product">
+          <img src="./images/home/product/ipad-pro.jpg">
+          <div class="product-info">
+            <h4 class="product-title">iPan Pro
+              </h4>
+            <p class="product-price">$629*</p>
+            <a class="product-btn" href="#">Buy Now</a>
+  
+          </div>
+        </div>
+      </div>
+    </section>
+
     <iframe frameborder="0" scrolling="no" style="height:800px;width:100%;border:none;" src='./html/footer.html'></iframe>
 
   </body>
