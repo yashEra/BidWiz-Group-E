@@ -1,0 +1,22 @@
+. {
+  
+}
+.categories .col-md-3 .col-sm-6 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+  gap: 1.5rem;
+}
+.categories .col-md-3 .col-sm-6 .card {
+  padding: 3rem;
+}
+.card img {
+  margin-top: 10%;
+
+  height: 12rem;
+  width: 15rem;
+}
+.fa-star,
+.fa-star-half {
+  color: yellowgreen;
+  padding: 3% 0;
+}
