@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./css/product-card.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -12,11 +13,13 @@
     <title>BidWiz</title>
   </head>
   <body>
+    <iframe frameborder="0" scrolling="no" style="height:80px;width:100%;border:none;z-index: 1000;" src='./html/navbar.html'></iframe>
+
     <div class="container">
       <div class="forms-container">
         <img class="header__image" src="main.svg" alt="" align="right" />
         <div class="signin-signup">
-          <form action="#" class="sign-up-form">
+          <form action="#" class="contact-form">
             <h2 class="title">Drop your words</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
@@ -78,5 +81,57 @@
     </script>
 
     <script src="app.js"></script>
+
+    <!-- *********************************************** -->
+
+    <section class="products">
+      <h2>New Products</h2>
+      <div class="all-products">
+        <div class="product">
+          <img src="./images/home/product/AirPod.jpg">
+          <div class="product-info">
+            <h4 class="product-title">AirPod 2nd Gen
+            </h4>
+            <p class="product-price">$129</p>
+            <a class="product-btn" href="#">Buy Now</a>
+  
+          </div>
+        </div>
+        <div class="product">
+          <img src="./images/home/product/apple-watch-pcq.jpg">
+          <div class="product-info">
+            <h4 class="product-title">Apple Watch
+            </h4>
+            <p class="product-price">$299</p>
+            <a class="product-btn" href="#">Buy Now</a>
+  
+          </div>
+        </div>
+        <div class="product">
+          <img src="./images/home/product/iPhone-14.jpg">
+          <div class="product-info">
+            <h4 class="product-title">iPhone 14
+            </h4>
+            <p class="product-price">$999</p>
+            <a class="product-btn" href="#">Buy Now</a>
+  
+          </div>
+        </div>
+        <div class="product">
+          <img src="./images/home/product/ipad-pro.jpg">
+          <div class="product-info">
+            <h4 class="product-title">iPan Pro
+              </h4>
+            <p class="product-price">$629*</p>
+            <a class="product-btn" href="#">Buy Now</a>
+  
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ********************************************************************* -->
+    <iframe frameborder="0" scrolling="no" style="height:800px;width:100%;border:none;" src='./html/footer.html'></iframe>
+
   </body>
 </html>
