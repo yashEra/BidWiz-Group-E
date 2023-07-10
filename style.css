@@ -281,6 +281,7 @@ form.back-to-home {
 
 @media (max-width: 870px) {
   .container {
+   margin-top:40px;
     min-height: 800px;
     height: 100vh;
   }
