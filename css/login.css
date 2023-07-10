@@ -3,6 +3,7 @@
     font-family: 'poppins' ,sans-serif;
 }
 body{
+    margin-top: 80px;
     background: rgb(34,0,71);
     background: linear-gradient(90deg, rgba(34,0,71,1) 0%, rgba(0,254,255,1) 100%);
     background-size: cover;
@@ -24,14 +25,14 @@ body{
     padding: 0 15px 0 15px;
     
 }
-span{
+.span__1{
     color: #fff;
     font-size: small;
     display: flex;
     justify-content: center;
     padding: 10px 0 10px 0;
 }
-header{
+.header_1{
     color: #fff;
     font-size: 30px;
     display: flex;
@@ -41,7 +42,7 @@ header{
 
 .input-field .input{
     height: 45px;
-    width: 87%;
+    width: 100%;
     margin-bottom: 6%;
     border: none;
     border-radius: 30px;

@@ -8,6 +8,7 @@
 }
 .categories__container {
   display: flex;
+  margin-top: 80px;
 }
 .sidebar {
   background: rgb(0, 195, 255);
