@@ -1,8 +1,9 @@
-body{
+.container{
+  margin-top: 160px;
     background: #f7f7ff;
-    margin-top:20px;
+    /* margin-top:20px; */
 }
-.card {
+/* .card {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -44,4 +45,4 @@ body{
     right: 150px;
     width: 100px;
     height: 110px;
-  }
+  } */

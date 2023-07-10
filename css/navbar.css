@@ -38,11 +38,13 @@
   margin: 0;
 }
 
-body {
+.navbar__section {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
   color: var(--text-color);
+  position: sticky;
+  z-index: 999;
 }
 
 ul {
@@ -54,13 +56,13 @@ a {
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
-.container {
+.nav__container {
   max-width: 1120px;
   margin-inline: 1.5rem;
 }
 
 /*=============== HEADER ===============*/
-.header {
+.nav__header {
   position: fixed;
   top: 0;
   left: 0;
@@ -206,6 +208,7 @@ a {
 }
 .dropdown__list {
   row-gap: 0.25rem;
+  justify-content: space-around;
 }
 .dropdown__link {
   font-size: var(--smaller-font-size);
@@ -323,7 +326,7 @@ a {
   }
 }
 @media screen and (min-width: 1152px) {
-  .container {
+  .nav__container {
     margin-inline: auto;
   }
 }
