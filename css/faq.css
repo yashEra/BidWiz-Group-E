@@ -24,7 +24,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Nunito", sans-serif;
+  font-family: "popins", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -37,17 +37,18 @@ section {
 }
 
 .section-header {
-  text-align: center;
+  text-align: left;
   padding-bottom: 40px;
 }
 
 .section-header h2 {
   font-size: 13px;
   letter-spacing: 1px;
-  font-weight: 700;
+  font-weight: 900;
   margin: 0;
-  color: #060606;
+  color: #616161;
   text-transform: uppercase;
+  text-align: left;
 }
 
 .section-header p {
