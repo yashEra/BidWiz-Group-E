@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+require_once './classes/person.php';
+session_start();
+if (isset($_SESSION["buyer"])) {
+  $buyer = $_SESSION["buyer"];
+} else {
+  header("Location: ./blogin.php?error=2");
+  exit();
+}
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -165,13 +176,12 @@
 					<div class="card">
 						<div class="card-body">
 							<div class="d-flex flex-column align-items-center text-center">
-								<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+								<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
 								<div class="mt-3">
-									<h4>Kamal Perera</h4>
-									<p class="text-secondary mb-1">Seller and Byer</p>
-									<p class="text-muted font-size-sm">Main road, Colombo 7</p>
-									<button class="btn btn-primary">Follow</button>
-									<button class="btn btn-outline-primary">Message</button>
+									<h4><?php echo $buyer->getFirstName(). " " . $buyer->getLastName();?> </h4>
+									<h6>(Buyer)</h6>
+									<a href="./classes/blogout.php"><button class="btn btn-outline-primary">Log Out</button></a>
+									<button class="btn btn-outline-primary">Change Password</button>
 								</div>
 							</div>
 							<hr class="my-4">
@@ -200,15 +210,16 @@
 						</div>
 					</div>
 				</div>
+				
 				<div class="col-lg-8">
-					<div class="card">
 						<div class="card-body">
+						<br>
 							<div class="row mb-3">
 								<div class="col-sm-3">
-									<h6 class="mb-0">Full Name</h6>
+								<h6 class="mb-0">Full Name</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="Kamal Perera">
+								<?php echo $buyer->getFirstName() . " " . $buyer->getLastName(); ?>
 								</div>
 							</div>
 							<div class="row mb-3">
@@ -216,7 +227,7 @@
 									<h6 class="mb-0">Email</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="kamal@gmail.com">
+								<?php echo $buyer->getEmail(); ?>
 								</div>
 							</div>
 							<div class="row mb-3">
@@ -224,15 +235,7 @@
 									<h6 class="mb-0">Phone</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="011 2248847">
-								</div>
-							</div>
-							<div class="row mb-3">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Mobile</h6>
-								</div>
-								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="076 2245147">
+								<?php echo $buyer->getPhoneNo(); ?>
 								</div>
 							</div>
 							<div class="row mb-3">
@@ -240,39 +243,36 @@
 									<h6 class="mb-0">Address</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="Main road, Colombo 7">
+								<?php echo $buyer->getAddress(); ?>
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-sm-3"></div>
+								<div class="col-sm-5"></div>
 								<div class="col-sm-9 text-secondary">
-									<input type="button" class="btn btn-primary px-4" value="Edit profile">
+									<a href="./editbUser.php"><input type="button" class="btn btn-primary px-4" value="Edit Profile"></a>
 								</div>
 							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="card">
-								<div class="card-body">
-									<h5 class="d-flex align-items-center mb-3">Activities and Purcheses</h5>
-									<p>Sellings</p>
-									<div class="progress mb-3" style="height: 5px">
-										<div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-									<p>Buyings</p>
-									<div class="progress mb-3" style="height: 5px">
-										<div class="progress-bar bg-danger" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
+							<br>
+							<h6>Do you Want see your Item Buyer History?</h6>
+							<br>
+							<form  action="./classes/bstoreprocess.php" method="post" >
+							<div class="row">
+								<div class="col-sm-5"></div>
+								<div class="col-sm-9 text-secondary">
+								<input type="hidden" class="btn btn-primary px-4" name="id" value="<?php echo $buyer->getBuyerId();?>">
+								<button class="btn btn-primary px-4"> View History</button>
+								</div>
 							</div>
+							</form>
 						</div>
 					</div>
-				</div>
 			</div>
 		</div>
 	</div>
 	</div>
-<iframe frameborder="0" scrolling="no" style="height:400px;width:100%;border:none;" src='./footer.html'></iframe>
+
+	<br><br><br>
+<iframe frameborder="0" scrolling="no" style="height:400px;width:100%;border:none;" src='../html/footer.html'></iframe>
 
 	
-</body>1111111
+</body>
