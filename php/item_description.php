@@ -39,23 +39,27 @@
     $item_sql = "SELECT * FROM item WHERE ItemNumber = $item_id";
     $item_result = $conn->query($item_sql);
 
-    $bid_sql = "SELECT MAX(Bid_Price) AS CurrentBid FROM bid WHERE ItemNumber = $item_id";
+    $bid_sql = "SELECT MAX(Bid_Price) AS CurrentBid, biddingdate FROM bid WHERE ItemNumber = $item_id";
     $bid_result = $conn->query($bid_sql);
-    $current_bid = $bid_result->fetch_assoc()['CurrentBid'];
+    $bid_data = $bid_result->fetch_assoc();
+    $current_bid = $bid_data['CurrentBid'];
+    $bidding_date = strtotime($bid_data['biddingdate']);
 
     if ($item_result->num_rows > 0) {
       $row = $item_result->fetch_assoc();
-      
+
       $start_bid = $row['Starting_bid_price'];
+      $end_price = $row['End_price'];
       $start_date = strtotime($row['Start_date']);
       $end_date = strtotime($row['End_date']);
-      
+
       // Check if bidding is open based on date and bid range
       $bidding_open = (
-        $current_bid < $row['End_price'] && 
-        $current_bid >= $start_bid &&
+        $current_bid <= $end_price && 
+        // $current_bid >= $start_bid &&
         time() >= $start_date && 
-        time() <= $end_date
+        time() <= $end_date &&
+        time() >= $bidding_date
       );
 
       ?>
@@ -66,25 +70,34 @@
         <div class="col-md-8 item-details">
           <h2 class="item-title"><?php echo $row['Item_Title']; ?></h2>
           <p class="item-description"><?php echo $row['Description']; ?></p>
+          Price Range: $<?php echo $start_bid; ?> - $<?php echo $end_price; ?><br>
           <div class="item-price">
             <strong>Current Bid: $<?php echo $current_bid; ?></strong><br>
             End Date: <?php echo $row['End_date']; ?>
           </div>
 
-          <?php if ($bidding_open): ?>
-            <!-- Bidding Form -->
-            <form action="place_bid.php" method="post">
-              <input type="hidden" name="item_id" value="<?php echo $item_id; ?>">
-              <div class="form-group">
-                <label for="bidAmount">Your Bid Amount:</label>
-                <input type="number" class="form-control" id="bidAmount" name="bidAmount" 
-                       min="<?php echo $current_bid + 1; ?>" max="<?php echo $row['End_price']; ?>" required>
-              </div>
-              <button type="submit" class="btn btn-primary btn-block">Place Bid</button>
-            </form>
-          <?php else: ?>
-            <p>Bidding is closed for this item.</p>
-          <?php endif; ?>
+          <!-- Bidding Form -->
+          <form action="place_bid.php" method="post">
+  <input type="hidden" name="item_id" value="<?php echo $item_id; ?>">
+  <div class="form-group">
+    <label for="bidAmount">Your Bid Amount:</label>
+    <input type="number" class="form-control" id="bidAmount" name="bidAmount" 
+           min="<?php echo $start_bid; ?>" max="<?php echo $end_price; ?>" required>
+    <?php if (isset($bidding_open) && !$bidding_open) : ?>
+      <div class="text-danger">
+        <?php 
+        if (time() >= $end_date) {
+          echo "Times up!. Currently Bidding Closing! We are bidding open soon.";
+        } else {
+          echo "Already someone got it!. Currently Bidding Closing! We are bidding open soon.";
+        }
+        ?>
+      </div>
+    <?php endif; ?>
+  </div>
+  <button type="submit" class="btn btn-primary btn-block" <?php echo (isset($bidding_open) && !$bidding_open) ? 'disabled' : ''; ?>>Place Bid</button>
+</form>
+
         </div>
       </div>
       <?php
