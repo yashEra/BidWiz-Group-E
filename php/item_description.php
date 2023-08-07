@@ -15,39 +15,50 @@
   $password = "testuser";
   $dbname = "bidwiz";
 
-
+  // Create connection
   $conn = new mysqli($servername, $username, $password, $dbname);
 
-
+  // Check connection
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
 
-
+  // Get item ID from query parameter
   if (isset($_GET['item_id']) && is_numeric($_GET['item_id'])) {
     $item_id = $_GET['item_id'];
 
+    // Select item details and current bid value from the database
+    $item_sql = "SELECT * FROM item WHERE ItemNumber = $item_id";
+    $item_result = $conn->query($item_sql);
 
-    $sql = "SELECT * FROM item WHERE ItemNumber = $item_id";
-    $result = $conn->query($sql);
+    $bid_sql = "SELECT MAX(Bid_Price) AS CurrentBid FROM bid WHERE ItemNumber = $item_id";
+    $bid_result = $conn->query($bid_sql);
+    $current_bid = $bid_result->fetch_assoc()['CurrentBid'];
 
-    if ($result->num_rows > 0) {
-      $row = $result->fetch_assoc();
+    if ($item_result->num_rows > 0) {
+      $row = $item_result->fetch_assoc();
       ?>
       <div class="row">
         <div class="col-md-8">
           <img src="<?php echo $row['Item_image']; ?>" class="img-fluid" alt="Item Image">
         </div>
-        <div class="col-md-4">
-          <h2><?php echo $row['Item_Title']; ?></h2>
-          <p><strong>Description:</strong></p>
-          <p><?php echo $row['Description']; ?></p>
-          <p><strong>Starting Bid:</strong> <?php echo $row['Starting_bid_price']; ?></p>
-          <p><strong>End Price:</strong> <?php echo $row['End_price']; ?></p>
-          <p><strong>Start Date:</strong> <?php echo $row['Start_date']; ?></p>
-          <p><strong>End Date:</strong> <?php echo $row['End_date']; ?></p>
-          <!-- You can add more item details here -->
-          <a href="#" class="btn btn-primary">Bid Now</a>
+        <div class="col-md-4 item-details">
+          <div class="item-title"><?php echo $row['Item_Title']; ?></div>
+          <div class="item-description"><?php echo $row['Description']; ?></div>
+          <div class="item-price">
+            <strong>Current Bid: $<?php echo $current_bid; ?></strong><br>
+            End Date: <?php echo $row['End_date']; ?>
+          </div>
+        
+          <!-- Bidding Form -->
+          <form action="place_bid.php" method="post">
+            <input type="hidden" name="item_id" value="<?php echo $item_id; ?>">
+            <div class="form-group">
+              <label for="bidAmount">Your Bid Amount:</label>
+              <input type="number" class="form-control" id="bidAmount" name="bidAmount" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Place Bid</button>
+          </form>
         </div>
       </div>
       <?php
@@ -61,6 +72,7 @@
   $conn->close();
   ?>
 </div>
+
 
 <!-- Include Bootstrap JS and jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
