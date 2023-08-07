@@ -4,12 +4,25 @@
   <title>Item Description</title>
   <!-- Include Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .item-image {
+      max-width: 100%;
+      height: auto;
+    }
+    .item-details {
+      padding: 20px;
+      background-color: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 4px;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
 
 <div class="container mt-4">
   <?php
-  // Replace with your database connection details
+
   $servername = "localhost";
   $username = "testuser";
   $password = "testuser";
@@ -17,11 +30,6 @@
 
   // Create connection
   $conn = new mysqli($servername, $username, $password, $dbname);
-
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
 
   // Get item ID from query parameter
   if (isset($_GET['item_id']) && is_numeric($_GET['item_id'])) {
@@ -37,28 +45,46 @@
 
     if ($item_result->num_rows > 0) {
       $row = $item_result->fetch_assoc();
+      
+      $start_bid = $row['Starting_bid_price'];
+      $start_date = strtotime($row['Start_date']);
+      $end_date = strtotime($row['End_date']);
+      
+      // Check if bidding is open based on date and bid range
+      $bidding_open = (
+        $current_bid < $row['End_price'] && 
+        $current_bid >= $start_bid &&
+        time() >= $start_date && 
+        time() <= $end_date
+      );
+
       ?>
       <div class="row">
-        <div class="col-md-8">
-          <img src="<?php echo $row['Item_image']; ?>" class="img-fluid" alt="Item Image">
+        <div class="col-md-4">
+          <img src="<?php echo $row['Item_image']; ?>" class="img-fluid item-image" alt="Item Image">
         </div>
-        <div class="col-md-4 item-details">
-          <div class="item-title"><?php echo $row['Item_Title']; ?></div>
-          <div class="item-description"><?php echo $row['Description']; ?></div>
+        <div class="col-md-8 item-details">
+          <h2 class="item-title"><?php echo $row['Item_Title']; ?></h2>
+          <p class="item-description"><?php echo $row['Description']; ?></p>
           <div class="item-price">
             <strong>Current Bid: $<?php echo $current_bid; ?></strong><br>
             End Date: <?php echo $row['End_date']; ?>
           </div>
-        
-          <!-- Bidding Form -->
-          <form action="place_bid.php" method="post">
-            <input type="hidden" name="item_id" value="<?php echo $item_id; ?>">
-            <div class="form-group">
-              <label for="bidAmount">Your Bid Amount:</label>
-              <input type="number" class="form-control" id="bidAmount" name="bidAmount" required>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Place Bid</button>
-          </form>
+
+          <?php if ($bidding_open): ?>
+            <!-- Bidding Form -->
+            <form action="place_bid.php" method="post">
+              <input type="hidden" name="item_id" value="<?php echo $item_id; ?>">
+              <div class="form-group">
+                <label for="bidAmount">Your Bid Amount:</label>
+                <input type="number" class="form-control" id="bidAmount" name="bidAmount" 
+                       min="<?php echo $current_bid + 1; ?>" max="<?php echo $row['End_price']; ?>" required>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Place Bid</button>
+            </form>
+          <?php else: ?>
+            <p>Bidding is closed for this item.</p>
+          <?php endif; ?>
         </div>
       </div>
       <?php
@@ -72,7 +98,6 @@
   $conn->close();
   ?>
 </div>
-
 
 <!-- Include Bootstrap JS and jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
