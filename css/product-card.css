@@ -17,8 +17,8 @@ h2{
 	background: aliceblue;
 	color: #21201e;
 	text-align: center;
-	width: 240px;
-	height: 400px;
+	/* width: 240px;
+	height: 400px; */
 	padding: 2rem;
 	display: flex;
 	flex-direction: column;

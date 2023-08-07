@@ -8,8 +8,8 @@ class DbConnector{
 
 private $host = "localhost";
 private $dbname = "bidwiz";
-private $dbuser = "testUser";
-private $dbpsw = "testUser";
+private $dbuser = "testuser";
+private $dbpsw = "testuser";
 
 public function getConnection(){
     $dsn = "mysql:host=$this->host;db_name=$this->dbname";
