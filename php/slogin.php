@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="../css/categories.css">
-	<link href="../css/navbar.css" rel="stylesheet">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-</style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">    <title>Login</title>
+
 </head>
 <body>
-	
+    	
 	<navbar class="navbar__section">
 		<!--=============== HEADER ===============-->
 		<header class="nav__header">
@@ -21,7 +22,7 @@
 						 BidWiz
 					</a>
 	
-					<div class="nav__toggle" id="nav-toggle">
+					<div class="nav__toggle" id="nav-toggle" style="padding-right:0%;">
 						<i class="ri-menu-line nav__toggle-menu"></i>
 						<i class="ri-close-line nav__toggle-close"></i>
 					</div>
@@ -34,7 +35,7 @@
 							<a href="../index.html" class="nav__link">Home</a>
 						</li>
 	
-						<!--=============== DROPDOWN 1 ===============-->
+						<!--=============== DROPDOWN ===============-->
 						<li class="dropdown__item">                      
 							<div class="nav__link dropdown__button">
 								Categories <i class="ri-arrow-down-s-line dropdown__arrow"></i>
@@ -70,7 +71,7 @@
 												<a href="./html/categories.html" class="dropdown__link">men</a>
 											</li>
 											<li>
-												<a href="./categories.html" class="dropdown__link">women</a>
+												<a href="./html/categories.html" class="dropdown__link">women</a>
 											</li>
 											<li>
 												<a href="./html/categories.html" class="dropdown__link">Wrist watchers</a>
@@ -84,7 +85,9 @@
 										<span class="dropdown__title">Sport Items</span>
 	
 										<ul class="dropdown__list">
-											b 
+											<li>
+												<a href="./html/categories.html" class="dropdown__link">Cloaths</a>
+											</li>
 											<li>
 												<a href="./html/categories.html" class="dropdown__link">Bat</a>
 											</li>
@@ -117,21 +120,20 @@
 	
 	
 						<li class="dropdown__item">
-							  <a href="Faq.html" class="nav__link">FAQ</a>
+							  <a href="faq.html" class="nav__link">FAQ</a>
 						</li>
 	
 						<li>
-							<a href="About_us.html" class="nav__link">About us</a>
+							<a href="about_us.html" class="nav__link">About us</a>
 						</li>
 	
 	
-						<li class="dropdown__item">                        
-							<div class="nav__link dropdown__button">
+						<li class="dropdown__item">
 								<a href="contact.html" class="nav__link">Contact us</a>
-							</div>
+							</li>
 	
 							<li class="dropdown__item">
-							  <a href="Login.html" class="nav__link">Login/Signup<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>
+							  <a href="login.html" class="nav__link">Login/Signup<i style="padding-left: 20px;color:black;" class="fa fa-user" aria-hidden="true"></i></a>
 							  
 	  
 						  </li>
@@ -146,24 +148,45 @@
 		<script src="../js/navbar.js"></script>
 	</navbar>
 	
+   <div class="box">
+    <div class="container">
 
-	<div class="categories__container">
-		<div class="sidebar">
-			<!-- <h3>BidWiz</h3> -->
-			<div class="filter">
-				<h3>CATEGORIES</h3>
-				<div id="btns"></div>
-			</div>
-		</div>
-		<div class="contant">
-			<!-- <div class="header">
-				<p>CATEGORIES</p>
-			</div> -->
-			<div id="root"></div>
-		</div>
-	</div>
 
-	<script src="../js/categories.js"></script>
-	
+
+        <div class="top">
+            <span class="span__1">Have an account?</span>
+            <header class="header_1">Login</header>
+        </div>
+
+		<form action="./classes/sloginProcess.php" method="post">
+
+        <div class="input-field">
+            <input type="text" class="input" placeholder="Email" id="" name="email">
+            <i class='bx bx-user' ></i>
+        </div>
+
+        <div class="input-field">
+            <input type="Password" class="input" placeholder="Password" id="" name="password">
+            <i class='bx bx-lock-alt'></i>
+        </div>
+
+        <div class="input-field">
+           <input type="submit" class="submit" value="Login" id="">
+        </div>
+
+		</form>
+
+        <div class="two-col">
+            <div class="one">
+               <label for="check"> Haven't an Account</label>
+            </div>
+            <div class="two">
+                <label><a href="signup.php">Sign up Now!</a></label>
+            </div>
+        </div>
+    </div>
+</div> 
+<iframe frameborder="0" scrolling="no" style="height:400px;width:100%;border:none;" src='../html/footer.html'></iframe>
+
 </body>
 </html>

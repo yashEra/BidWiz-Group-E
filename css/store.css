@@ -1,3 +1,4 @@
+
 .product-grid{
   font-family: 'Poppins', sans-serif;
   text-align: center;
@@ -206,4 +207,6 @@
 @media screen and (max-width:1200px){
   .product-grid1{ margin: 0 0 30px; }
 }
+
+
 
