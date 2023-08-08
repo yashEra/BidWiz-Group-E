@@ -10,6 +10,7 @@
   display: flex;
   margin-top: 80px;
 }
+
 .sidebar {
   background: rgb(0, 195, 255);
   background: linear-gradient(
@@ -28,11 +29,12 @@
   padding-left: 40px;
 }
 .filter {
-  margin-top: 50px;
+  margin-top: none;
   padding: 30px 40px;
+  margin-bottom: 50px;
 }
 .filter h3 {
-	font-size: 199%;
+  font-size: 199%;
   margin-bottom: 30px;
 }
 .contant {
@@ -47,6 +49,7 @@
   height: 10vh;
   color: #002147;
 }
+
 .header p {
   font-size: 30px;
   font-weight: bold;
@@ -130,8 +133,7 @@ button:hover {
   transition: 0.4s;
 }
 
-@media screen and (max-width:1000px) {
-  
+@media screen and (max-width: 1000px) {
   .categories__container {
     display: block;
     margin-top: 80px;
