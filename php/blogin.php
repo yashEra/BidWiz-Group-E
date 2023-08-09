@@ -26,7 +26,7 @@
 
         <div class="top">
             <span class="span__1">Have an account?</span>
-            <header class="header_1">Login</header>
+            <header class="header_1">Buyer Login</header>
         </div>
 
 		<form action="./classes/bloginProcess.php" method="post">

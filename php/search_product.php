@@ -20,8 +20,7 @@ search_product();
 
 <body>
 
-	<navbar class="navbar__section">
-		<!--=============== HEADER ===============-->
+<navbar class="navbar__section">
 		<header class="nav__header">
 			<nav class="nav nav__container">
 				<div class="nav__data">
@@ -34,44 +33,44 @@ search_product();
 						<i class="ri-close-line nav__toggle-close"></i>
 					</div>
 				</div>
-
-				<!--=============== NAV MENU ===============-->
 				<div class="nav__menu" id="nav-menu">
 					<ul class="nav__list">
 						<li class="dropdown__item">
 							<div class="nav__link dropdown__button">
-								Categories <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+								Categories
 							</div>
-
 						</li>
 
 
 						<li class="dropdown__item">
-							<a href="Faq.html" class="nav__link">FAQ</a>
+							<a href="faq.php" class="nav__link">FAQ</a>
 						</li>
 
 						<li>
-							<a href="About_us.html" class="nav__link">About us</a>
+							<a href="aboutus.php" class="nav__link">About us</a>
 						</li>
 
 
 						<li class="dropdown__item">
-							<div class="nav__link dropdown__button">
-								<a href="contact.html" class="nav__link">Contact us</a>
-							</div>
-						</li>
-						<li class="dropdown__item">
-							<a href="Login.html" class="nav__link">Login/Signup<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>
-
-
+								<a href="contact.php" class="nav__link">Contact us</a>
 						</li>
 						<li>
-							<form class=" d-flex" style=" margin-top: 30px;" action="search_product.php" method="GET">
-								<input class="form-control me-5" style="padding: 8px;border-color: rgb(0, 162, 255); " type="search" placeholder="Search" aria-label="Search" name="search_data">
-								<input type="submit" value="Search" class=" btn-outline-light " style="background-color: rgb(0, 162, 255);color: white;border: none;border-radius: 4px;cursor: pointer;padding: 8px 16px;" name="search_data_product">
+							<form class="d-flex"  action="search_product.php" method="GET" style="display:flex; align-items:center; justify-content:center; padding: 0 16px 0 16px;">
+							<div class="search-input-field">
+								<input class="search-input" style="padding: 8px; border-color: rgb(0, 162, 255);" type="search" placeholder="Search" aria-label="Search" name="search_data"> <!-- Change the input name to "search_data_product" -->
+								</div>
+								<input type="submit" value="Search" class="search-submit" name="search_data_product">
 							</form>
 
+
+
 						</li>
+						<li class="dropdown__item">
+							<a href="prelogin.php" class="nav__link">Login/Signup<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>
+
+
+						</li>
+
 
 
 

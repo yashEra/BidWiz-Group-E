@@ -25,19 +25,20 @@
 <?php
   
   include('navbar.php');
+  include('./includes/connect.php');
 
   ?>
 
   <div class="container mt-4">
     <?php
 
-    $servername = "localhost";
-    $username = "testuser";
-    $password = "testuser";
-    $dbname = "bidwiz";
+    // $servername = "localhost";
+    // $username = "testuser";
+    // $password = "testuser";
+    // $dbname = "bidwiz";
 
     // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    // $conn = new mysqli($servername, $username, $password, $dbname);
 
     // Get item ID from query parameter
     if (isset($_GET['item_id']) && is_numeric($_GET['item_id'])) {
@@ -45,10 +46,10 @@
 
       // Select item details and current bid value from the database
       $item_sql = "SELECT * FROM item WHERE ItemNumber = $item_id";
-      $item_result = $conn->query($item_sql);
+      $item_result = $con->query($item_sql);
 
       $bid_sql = "SELECT MAX(Bid_Price) AS CurrentBid, biddingdate FROM bid WHERE ItemNumber = $item_id";
-      $bid_result = $conn->query($bid_sql);
+      $bid_result = $con->query($bid_sql);
       $bid_data = $bid_result->fetch_assoc();
       $current_bid = $bid_data['CurrentBid'];
       $bidding_date = strtotime($bid_data['biddingdate']);
@@ -114,7 +115,7 @@
       echo "Invalid item ID.";
     }
 
-    $conn->close();
+    $con->close();
     ?>
   </div>
 

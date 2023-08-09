@@ -16,144 +16,76 @@
 
 <body>
 
-  <navbar class="navbar__section">
-    <!--=============== HEADER ===============-->
-    <header class="nav__header">
-      <nav class="nav nav__container">
-        <div class="nav__data">
-          <a href="#" class="nav__logo">
-            BidWiz
-          </a>
+<navbar class="navbar__section">
+		<header class="nav__header">
+			<nav class="nav nav__container">
+				<div class="nav__data">
+					<a href="index.php" class="nav__logo">
+						BidWiz
+					</a>
 
-          <div class="nav__toggle" id="nav-toggle">
-            <i class="ri-menu-line nav__toggle-menu"></i>
-            <i class="ri-close-line nav__toggle-close"></i>
-          </div>
-        </div>
+					<div class="nav__toggle" id="nav-toggle">
+						<i class="ri-menu-line nav__toggle-menu"></i>
+						<i class="ri-close-line nav__toggle-close"></i>
+					</div>
+				</div>
+				<div class="nav__menu" id="nav-menu">
+					<ul class="nav__list">
+						<li class="dropdown__item">
+							<div class="nav__link dropdown__button">
+								Categories
+							</div>
+						</li>
 
-        <!--=============== NAV MENU ===============-->
-        <div class="nav__menu" id="nav-menu">
-          <ul class="nav__list">
+
+						<li class="dropdown__item">
+							<a href="../php/faq.php" class="nav__link">FAQ</a>
+						</li>
+
+						<li>
+							<a href="../php/aboutus.php" class="nav__link">About us</a>
+						</li>
+
+
+						<li class="dropdown__item">
+								<a href="../php/contact.php" class="nav__link">Contact us</a>
+						</li>
             <li>
-              <a href="index.html" class="nav__link">Home</a>
-            </li>
-
-            <!--=============== DROPDOWN ===============-->
-            <li class="dropdown__item">
-              <div class="nav__link dropdown__button">
-                Categories <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-              </div>
-
-              <div class="dropdown__container">
-                <div class="dropdown__content">
-                  <div class="dropdown__group">
+							<form class="d-flex"  action="./php/search_product.php" method="GET" style="display:flex; align-items:center; justify-content:center; padding: 0 16px 0 16px;">
+							<div class="search-input-field">
+								<input class="search-input" style="padding: 8px; border-color: rgb(0, 162, 255);" type="search" placeholder="Search" aria-label="Search" name="search_data"> <!-- Change the input name to "search_data_product" -->
+								</div>
+								<input type="submit" value="Search" class="search-submit" name="search_data_product">
+							</form>
+						<li class="dropdown__item">
+							<a href="../php/prelogin.php" class="nav__link">Login/Signup<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>
 
 
-                    <span class="dropdown__title">Electronic Items</span>
-
-                    <ul class="dropdown__list">
-                      <li>
-                        <a href="./html/categories.html" class="dropdown__link">Mobile $ Accesories</a>
-                      </li>
-                      <li>
-                        <a href="./html/categories.html" class="dropdown__link">Homeware</a>
-                      </li>
-                      <li>
-                        <a href="./html/categories.html" class="dropdown__link">Other</a>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="dropdown__group">
+						</li>
 
 
-                    <span class="dropdown__title">Cloath</span>
-
-                    <ul class="dropdown__list">
-                      <li>
-                        <a href="./html/categories.html" class="dropdown__link">men</a>
-                      </li>
-                      <li>
-                        <a href="./html/categories.html" class="dropdown__link">women</a>
-                      </li>
-                      <li>
-                        <a href="./html/categories.html" class="dropdown__link">Wrist watchers</a>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="dropdown__group">
 
 
-                    <span class="dropdown__title">Sport Items</span>
 
-                    <ul class="dropdown__list">
-                      <li>
-                        <a href="./html/categories.html" class="dropdown__link">Cloaths</a>
-                      </li>
-                      <li>
-                        <a href="./html/categories.html" class="dropdown__link">Bat</a>
-                      </li>
-                      <li>
-                        <a href="./html/categories.html" class="dropdown__link">ball</a>
-                      </li>
-                      <li>
-                        <a href="./html/categories.html" class="dropdown__link">other</a>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="dropdown__group">
+						</li>
 
 
-                    <span class="dropdown__title">other</span>
+					</ul>
 
-                    <ul class="dropdown__list">
-                      <li>
-                        <a href="./html/categories.html" class="dropdown__link">new</a>
-                      </li>
-                      <li>
-                        <a href="./html/categories.html" class="dropdown__link">new</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </li>
+				</div>
 
+			</nav>
+		</header>
 
-            <li class="dropdown__item">
-              <a href="./html/Faq.html" class="nav__link">FAQ</a>
-            </li>
-
-            <li>
-              <a href="./html/About_us.html" class="nav__link">About us</a>
-            </li>
-
-
-            <li class="dropdown__item">
-              <a href="./html/contact.html" class="nav__link">Contact us</a>
-
-            </li>
-            <li class="dropdown__item">
-              <a href="./html/Login.html" class="nav__link">Login/Signup<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>
-
-
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-
-
-    <script src="../js/navbar.js"></script>
-  </navbar>
+		<!--=============== MAIN JS ===============-->
+		<script src="../js/navbar.js"></script>
+	</navbar>
 
   <div class="header__container">
     <div class="forms-container">
       <img class="header__image" src="main.svg" alt="" align="right" />
       <div class="signin-signup">
-        <form action="#" class="contact-form">
+        <form action="#" class="contact-form quick__contact__form">
           <h2 class="title">Drop your words</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
@@ -167,7 +99,7 @@
             <i class="fas fa-lock"></i>
             <input type="textarea" placeholder="Massege....." />
           </div>
-          <input type="submit" class="btn" value="Submit" />
+          <input type="submit" class="header-btn" value="Submit" />
           <p class="social-text"></p>
         </form>
       </div>
@@ -181,7 +113,7 @@
             BidWiz is an online auction website that provides a platform for
             users to bid on a wide range of products and items.
           </p>
-          <button class="btn transparent" id="sign-up-btn">Contact</button>
+          <button class="header-btn transparent" id="sign-up-btn">Contact</button>
         </div>
       </div>
       <div class="panel right-panel">
@@ -190,7 +122,7 @@
           <p>
             If you have any questions or inquiries, please fill out the form!.
           </p>
-          <button class="btn transparent" id="sign-in-btn">Back</button>
+          <button class="header-btn transparent" id="sign-in-btn">Back</button>
         </div>
       </div>
     </div>
@@ -288,22 +220,23 @@
       <div class="row">
         <?php
         // Replace with your database connection details
-        $servername = "localhost";
-        $username = "testuser";
-        $password = "testuser";
-        $dbname = "bidwiz";
+        // $servername = "localhost";
+        // $username = "testuser";
+        // $password = "testuser";
+        // $dbname = "bidwiz";
+        include('./php/includes/connect.php');
 
         // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
+        // $conn = new mysqli($servername, $username, $password, $dbname);
 
         // Check connection
-        if ($conn->connect_error) {
-          die("Connection failed: " . $conn->connect_error);
+        if ($con->connect_error) {
+          die("Connection failed: " . $con->connect_error);
         }
 
         // Select items from Category 1
         $sql = "SELECT * FROM item WHERE Category_id = 2";
-        $result = $conn->query($sql);
+        $result = $con->query($sql);
 
         if ($result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
@@ -327,7 +260,7 @@
           echo "No items found in Category 1.";
         }
 
-        $conn->close();
+        $con->close();
         ?>
       </div>
     </div>

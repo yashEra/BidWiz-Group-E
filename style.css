@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 
 body,
 input {
@@ -66,7 +66,7 @@ input {
   z-index: 5;
 }
 
-form {
+.quick__contact__form {
   
   display: flex;
   align-items: center;
@@ -79,12 +79,12 @@ form {
   grid-row: 1 / 2;
 }
 
-form.contact-form {
+.quick__contact__form.contact-form {
   opacity: 0;
   z-index: 1;
 }
 
-form.back-to-home {
+.quick__contact__form.back-to-home {
   z-index: 2;
 }
 
@@ -140,7 +140,7 @@ form.back-to-home {
   justify-content: center;
 }
 
-.btn {
+.header-btn {
   width: 150px;
   background-color: #5995fd;
   border: none;
@@ -155,7 +155,7 @@ form.back-to-home {
   transition: 0.5s;
 }
 
-.btn:hover {
+.header-btn:hover {
   background-color: #4d84e2;
 }
 .panels-container {
@@ -225,7 +225,7 @@ form.back-to-home {
   padding: 0.7rem 0;
 }
 
-.btn.transparent {
+.header-btn.transparent {
   margin: 0;
   background: none;
   border: 2px solid #fff;
@@ -339,7 +339,7 @@ form.back-to-home {
     padding: 0.5rem 0;
   }
 
-  .btn.transparent {
+  .header-btn.transparent {
     width: 110px;
     height: 35px;
     font-size: 0.7rem;

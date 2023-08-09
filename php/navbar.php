@@ -8,6 +8,7 @@ include('./includes/connect.php');
 
 <head>
 	<link rel="stylesheet" href="../css/categories.css">
+	<!-- <link rel="stylesheet" href="./css/preLogin.css"> -->
 	<link href="./css/navbar.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -21,7 +22,7 @@ include('./includes/connect.php');
 		<header class="nav__header">
 			<nav class="nav nav__container">
 				<div class="nav__data">
-					<a href="../index.html" class="nav__logo">
+					<a href="../index.php" class="nav__logo">
 						BidWiz
 					</a>
 
@@ -40,34 +41,35 @@ include('./includes/connect.php');
 
 
 						<li class="dropdown__item">
-							<a href="Faq.php" class="nav__link">FAQ</a>
+							<a href="faq.php" class="nav__link">FAQ</a>
 						</li>
 
 						<li>
-							<a href="About_us.php" class="nav__link">About us</a>
+							<a href="aboutus.php" class="nav__link">About us</a>
 						</li>
 
 
 						<li class="dropdown__item">
-							<div class="nav__link dropdown__button">
 								<a href="contact.php" class="nav__link">Contact us</a>
-							</div>
 						</li>
-						<li class="dropdown__item">
-							<a href="login.php" class="nav__link">Login/Signup<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>
-
-
-						</li>
-
 						<li>
-							<form class="d-flex" style="margin-top: 30px;" action="search_product.php" method="GET">
-								<input class="form-control me-5" style="padding: 8px; border-color: rgb(0, 162, 255);" type="search" placeholder="Search" aria-label="Search" name="search_data_product"> <!-- Change the input name to "search_data_product" -->
-								<input type="submit" value="Search" class="btn-outline-light" style="background-color: rgb(0, 162, 255); color: white; border: none; border-radius: 4px; cursor: pointer; padding: 8px 16px;">
+							<form class="d-flex"  action="search_product.php" method="GET" style="display:flex; align-items:center; justify-content:center; padding: 0 16px 0 16px;">
+							<div class="search-input-field">
+								<input class="search-input" style="padding: 8px; border-color: rgb(0, 162, 255);" type="search" placeholder="Search" aria-label="Search" name="search_data"> <!-- Change the input name to "search_data_product" -->
+								</div>
+								<input type="submit" value="Search" class="search-submit" name="search_data_product">
 							</form>
 
 
 
 						</li>
+						<li class="dropdown__item">
+							<a href="prelogin.php" class="nav__link">Login/Signup<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>
+
+
+						</li>
+
+
 
 
 					</ul>

@@ -24,7 +24,7 @@
 
         <div class="top">
             <span class="span__1">Have an account?</span>
-            <header class="header_1">"Let's get started! Select your user type before logging in."</header>
+            <header class="header_1">Let's get started!</header>
         </div>
         <br>
 

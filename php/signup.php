@@ -69,7 +69,7 @@
                <label for="check"> Have an Account</label>
             </div>
             <div class="two">
-                <label><a href="login.html">Login Now!</a></label>
+                <label><a href="prelogin.php">Login Now!</a></label>
             </div>
         </div>
     </div>
