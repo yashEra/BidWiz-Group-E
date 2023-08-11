@@ -97,7 +97,7 @@ session_start();
 		<script src="../js/navbar.js"></script>
 	</navbar>
 
-  <div class="header__container">
+  <div class="header__container" style="margin-top: 3.5rem;">
     <div class="forms-container">
       <img class="header__image" src="main.svg" alt="" align="right" />
       <div class="signin-signup">
