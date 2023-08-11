@@ -77,11 +77,12 @@ session_start();
         $end_date = strtotime($row['End_date']);
 
 
-        $bidding_open = ($current_bid <= $end_price &&
-
+        $bidding_open = (
+          
+          $current_bid < $end_price &&
           time() >= $start_date &&
-          time() <= $end_date &&
-          time() >= $bidding_date
+          time() <= $end_date 
+          // time() >= $bidding_date
         );
 
     ?>
@@ -114,7 +115,7 @@ session_start();
                     <?php
                     if (time() >= $end_date) {
                       echo "Times up!. Currently Bidding Closing! We are bidding open soon.";
-                    } else {
+                    } elseif($current_bid >= $end_price){
                       echo "Already someone got it!. Currently Bidding Closing! We are bidding open soon.";
                     }
                     ?>

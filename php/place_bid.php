@@ -27,27 +27,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                      VALUES ('$bidAmount', 1, 1, UNIX_TIMESTAMP(), $item_id)";
 
     if ($conn->query($insertBidSQL) === TRUE) {
-      // Update the current bid value in the item table
-      $updateItemSQL = "UPDATE item SET End_price = '$bidAmount' WHERE ItemNumber = $item_id";
-      if ($conn->query($updateItemSQL) === TRUE) {
         echo "Bid placed successfully.";
       } else {
         echo "Error updating current bid value: " . $conn->error;
       }
-    } else {
-      echo "Error placing bid: " . $conn->error;
     }
-  }
+
 } else {
   echo "Invalid request.";
 }
 
 $conn->close();
 ?>
-
-  
-  
-  
-  
-  
-  
