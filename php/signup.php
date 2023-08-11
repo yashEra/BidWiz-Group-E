@@ -22,7 +22,7 @@
   ?>
 
    <div class="box">
-    <div class="container">
+    <div class="form__container">
 
         <div class="top">
             <span class="span__1">Haven't an account?</span>
@@ -75,6 +75,9 @@
     </div>
 </div>  
 
-<iframe frameborder="0" scrolling="no" style="height:400px;width:100%;border:none;" src='../html/footer.html'></iframe>
-</body>
+<?php
+  
+  include('footer.php');
+
+  ?></body>
 </html>

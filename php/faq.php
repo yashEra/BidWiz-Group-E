@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+require_once './classes/person.php';
+session_start();
+
+?>
 
 <head>
   <meta charset="utf-8">
@@ -150,8 +155,11 @@
   <script src="../js/main.js"></script>
   <!--=============== MAIN JS ===============-->
   <!-- <script src="../js/navbar.js"></script> -->
-  <iframe frameborder="0" scrolling="no" style="height:280px;width:100%;border:none;bottom: 0px;" src='../html/footer.html'></iframe>
+  <?php
+  
+  include('footer.php');
 
+  ?>
 
 </body>
 

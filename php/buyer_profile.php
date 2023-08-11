@@ -143,7 +143,10 @@ if (isset($_SESSION["buyer"])) {
 	</div>
 
 	<br><br><br>
-<iframe frameborder="0" scrolling="no" style="height:400px;width:100%;border:none;" src='../html/footer.html'></iframe>
+	<?php
+  
+  include('footer.php');
 
+  ?>
 	
 </body>

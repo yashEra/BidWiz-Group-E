@@ -41,7 +41,7 @@ include('./includes/connect.php');
 
 
 						<li class="dropdown__item">
-							<a href="faq.php" class="nav__link">FAQ</a>
+							<a href="faq.php" class="nav__link" style="text-decoration: none;">FAQ</a>
 						</li>
 
 						<li>
@@ -50,24 +50,36 @@ include('./includes/connect.php');
 
 
 						<li class="dropdown__item">
-								<a href="contact.php" class="nav__link">Contact us</a>
+							<a href="contact.php" class="nav__link">Contact us</a>
 						</li>
 						<li>
-							<form class="d-flex"  action="search_product.php" method="GET" style="display:flex; align-items:center; justify-content:center; padding: 0 16px 0 16px;">
-							<div class="search-input-field">
-								<input class="search-input" style="padding: 8px; border-color: rgb(0, 162, 255);" type="search" placeholder="Search" aria-label="Search" name="search_data"> <!-- Change the input name to "search_data_product" -->
+							<form class="d-flex" action="search_product.php" method="GET" style="display:flex; align-items:center; justify-content:center; padding: 0 16px 0 16px;">
+								<div class="search-input-field">
+									<input class="search-input" style="padding: 8px; border-color: rgb(0, 162, 255);" type="search" placeholder="Search" aria-label="Search" name="search_data"> <!-- Change the input name to "search_data_product" -->
 								</div>
 								<input type="submit" value="Search" class="search-submit" name="search_data_product">
 							</form>
 
 
 
-						</li>
 						<li class="dropdown__item">
-							<a href="prelogin.php" class="nav__link">Login/Signup<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>
+							<?php
+							require_once './classes/person.php';
+							// session_start();
 
-
+							if (isset($_SESSION["buyer"])) {
+								$buyer = $_SESSION["buyer"];
+								echo '<a href="seller_profile.php" class="nav__link">' . $buyer->getFirstName() . '<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>';
+							} elseif (isset($_SESSION["seller"])) {
+								$seller = $_SESSION["seller"];
+								echo '<a href="buyer_profile.php" class="nav__link">' . $seller->getFirstName() . '<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>';
+							} else {
+								echo '<a href="prelogin.php" class="nav__link">Login/Signup<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>';
+							}
+							?>
 						</li>
+
+
 
 
 

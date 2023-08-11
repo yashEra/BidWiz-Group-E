@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+require_once './classes/person.php';
+session_start();
 
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,8 +61,11 @@
             </div>
         </div>
         </div>
-        <iframe frameborder="0" scrolling="no" style="height:280px;width:100%;border:none;bottom: 0;"
-            src='../html/footer.html'></iframe>
+        <?php
+  
+  include('footer.php');
+
+  ?>
 
     </body>
 

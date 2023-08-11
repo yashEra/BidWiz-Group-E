@@ -5,6 +5,11 @@ include('./functions/common_function.php');
 search_product();
 
 ?>
+<?php
+require_once './classes/person.php';
+session_start();
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -88,7 +93,11 @@ search_product();
 
 
 
+	<?php
+  
+  include('footer.php');
 
+  ?>
 
 	<script src="../js/categories.js"></script>
 

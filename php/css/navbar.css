@@ -1,6 +1,10 @@
 /*=============== GOOGLE FONTS ===============*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 /*=============== VARIABLES CSS ===============*/
+.dropdown__item a{
+  text-decoration: none;
+}
+
 :root {
   --header-height: 3.5rem;
   /*========== Colors ==========*/
@@ -36,6 +40,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  text-decoration: none;
 }
 
 .navbar__section {
@@ -79,6 +84,10 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-decoration: none;
+}
+.nav__data:hover {
+  color: skyblue;
 }
 .nav__logo {
   display: inline-flex;
@@ -87,12 +96,14 @@ a {
   color: var(--title-color);
   font-weight: var(--font-semi-bold);
   transition: color 0.3s;
+  text-decoration: none;
 }
 .nav__logo i {
   font-size: 1.25rem;
 }
 .nav__logo:hover {
   color: var(--first-color);
+  text-decoration: none;
 }
 .nav__toggle {
   position: relative;
@@ -136,6 +147,7 @@ a {
 }
 .nav__link {
   color: var(--title-color);
+  text-decoration: none;
   font-weight: var(--font-semi-bold);
   padding: 1.25rem 1.5rem;
   display: flex;
@@ -144,7 +156,8 @@ a {
   transition: background-color 0.3s;
 }
 .nav__link:hover {
-  background-color: var(--first-color-lighten);
+  background-color: skyblue;
+  text-decoration: none;
 }
 
 .show-menu {

@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+require_once './classes/person.php';
+session_start();
+
+?>s
 <html lang="en">
 
 <head>
@@ -375,8 +380,11 @@
 
     </section><!-- End Team Section -->
     <!---------------------- Footer ------------------------>
-    <iframe frameborder="0" scrolling="no" style="height:280px;width:100%;border:none;bottom: 0px;" src='../html/footer.html'></iframe>
+    <?php
+  
+  include('footer.php');
 
+  ?>
     <!-- <footer>
       <div class="container py-4 py-lg-5">
           <div class="row justify-content-center">

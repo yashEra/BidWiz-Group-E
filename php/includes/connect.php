@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect('localhost','testUser','testUser','bidwiz');
+$con=mysqli_connect('localhost','testuser','testuser','bidwiz');
 if(!$con){
     die("connection successfull");
 }

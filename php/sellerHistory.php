@@ -10,7 +10,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./php/css/product-card.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <title>BidWiz seller history</title>
+  <title>BidWiz- seller history</title>
 </head>
 
 <body>
@@ -202,8 +202,11 @@
 
 
 
-<iframe frameborder="0" scrolling="no" style="height:400px;width:100%;border:none;" src='../html/footer.html'></iframe>
+    <?php
+  
+  include('footer.php');
 
+  ?>
 
 </body>
 </html>
