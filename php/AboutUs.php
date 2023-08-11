@@ -39,7 +39,7 @@ session_start();
 
   <main id="main">
 
-    <section id="about" class="about">
+    <section id="about" class="about" style="margin-top: 3.5rem;">
 
       <div class="container" data-aos="fade-up">
         <div class="row gx-0">

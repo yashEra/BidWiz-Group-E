@@ -20,7 +20,7 @@
   ?>
 	
    <div class="box">
-    <div class="container">
+    <div class="form__container">
 
         <div class="top">
             <span class="span__1">Have an account?</span>
