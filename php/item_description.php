@@ -8,7 +8,8 @@ session_start();
 
 <head>
   <title>Item Description</title>
-  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="./css/product-card.css" />
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     .item-image {
@@ -23,12 +24,29 @@ session_start();
       border-radius: 4px;
       margin-top: 20px;
     }
+
+    button {
+      color: #ececec;
+      display: inline-block;
+      text-decoration: none;
+      background-color: #2c3e50;
+      padding: 1.2rem 3rem;
+      border-radius: 1rem;
+      margin-top: 1rem;
+      width: 50%;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
   </style>
 </head>
 
 <body>
-<?php
-  
+  <?php
+
   include('navbar.php');
   include('./includes/connect.php');
 
@@ -37,19 +55,10 @@ session_start();
   <div class="container mt-4">
     <?php
 
-    // $servername = "localhost";
-    // $username = "testuser";
-    // $password = "testuser";
-    // $dbname = "bidwiz";
-
-    // Create connection
-    // $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Get item ID from query parameter
     if (isset($_GET['item_id']) && is_numeric($_GET['item_id'])) {
       $item_id = $_GET['item_id'];
 
-      // Select item details and current bid value from the database
+
       $item_sql = "SELECT * FROM item WHERE ItemNumber = $item_id";
       $item_result = $con->query($item_sql);
 
@@ -67,21 +76,26 @@ session_start();
         $start_date = strtotime($row['Start_date']);
         $end_date = strtotime($row['End_date']);
 
-        // For Check if bidding is open based on date and bid range
+
         $bidding_open = ($current_bid <= $end_price &&
-          // $current_bid >= $start_bid &&
+
           time() >= $start_date &&
           time() <= $end_date &&
           time() >= $bidding_date
         );
 
     ?>
-        <div class="row">
+        <div class="row product" style="margin-top: 100px;">
           <div class="col-md-4">
             <img src="<?php echo $row['Item_image']; ?>" class="img-fluid item-image" alt="Item Image">
           </div>
-          <div class="col-md-8 item-details">
+          <div class="col-md-8 ">
             <h2 class="item-title"><?php echo $row['Item_Title']; ?></h2>
+
+
+
+            <a href="storeview.php?seller_id=<?php echo $row['Seller_id']; ?>" style="width:50%;">View Store</a>
+
             <p class="item-description"><?php echo $row['Description']; ?></p>
             Price Range: $<?php echo $start_bid; ?> - $<?php echo $end_price; ?><br>
             <div class="item-price">
@@ -107,7 +121,7 @@ session_start();
                   </div>
                 <?php endif; ?>
               </div>
-              <button type="submit" class="btn btn-primary btn-block" <?php echo (isset($bidding_open) && !$bidding_open) ? 'disabled' : ''; ?>>Place Bid</button>
+              <button type="submit" <?php echo (isset($bidding_open) && !$bidding_open) ? 'disabled' : ''; ?>>Place Bid</button>
             </form>
 
           </div>
@@ -124,7 +138,7 @@ session_start();
     ?>
   </div>
   <?php
-  
+
   include('footer.php');
 
   ?>

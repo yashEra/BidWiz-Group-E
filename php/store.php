@@ -3,6 +3,8 @@
 
 <?php
 require_once './classes/item.php';
+require_once './classes/person.php';
+
 session_start();
 if (isset($_SESSION["result"])) {
   $rs = $_SESSION["result"];
@@ -17,7 +19,8 @@ if (isset($_SESSION["result"])) {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="../css/store.css" />
+  <link rel="stylesheet" href="./css/store.css" />
+  <link rel="stylesheet" href="./css/product-card.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Open+Sans" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -30,63 +33,7 @@ if (isset($_SESSION["result"])) {
   <title>BidWiz</title>
 
   <style>
-    h2 {
-      color: #000;
-      font-size: 26px;
-      font-weight: 300;
-      text-align: center;
-      text-transform: uppercase;
-      position: relative;
-      margin: 30px 0 60px;
-      padding-top: 100px;
-    }
 
-    h2::after {
-      content: "";
-      width: 100px;
-      position: absolute;
-      margin: 0 auto;
-      height: 4px;
-      border-radius: 1px;
-      background: #0eb2e4;
-      left: 0;
-      right: 0;
-      bottom: -20px;
-    }
-
-    .carousel {
-      margin: 50px auto;
-      padding: 0 70px;
-      /* top: 325px; */
-    }
-
-    .carousel .item {
-      color: #747d89;
-      min-height: 325px;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .carousel .thumb-wrapper {
-      padding: 25px 15px;
-      background: #fff;
-      border-radius: 6px;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
-    }
-
-    .carousel .item .img-box {
-      height: 120px;
-      margin-bottom: 20px;
-      width: 100%;
-      position: relative;
-    }
-
-    .carousel .item-price strike {
-      opacity: 0.7;
-      margin-right: 5px;
-    }
   </style>
 
 </head>
@@ -94,8 +41,8 @@ if (isset($_SESSION["result"])) {
 <body>
 
 
-<?php
-  
+  <?php
+
   include('navbar.php');
 
   ?>
@@ -117,31 +64,33 @@ if (isset($_SESSION["result"])) {
               foreach ($rs as $row) {
                 $dbitemNumber = $row->ItemNumber;
                 $dbitemTitle = $row->Item_Title;
+                $dbDescription = $row->Description;
+                $dbStartingBid = $row->Starting_bid_price;
                 $dbEndPrice = $row->End_price;
-                $dbbid = $row->Buyer_id;
-                $dbsid = $row->Seller_id;
-                $dbimage = $row->Item_image;
+                $dbEndDate = $row->End_date;
+                $dbItemImage = $row->Item_image;
+                $dbsid = "";
+                $dbbid = "";
 
-                $item = new item($dbitemNumber, $dbitemTitle, $dbEndPrice, $dbbid, $dbsid, $dbimage);
+                $item = new item($dbitemNumber, $dbitemTitle, $dbEndPrice, $dbbid, $dbsid, $dbItemImage);
               ?>
-                <div class="col-md-3 col-sm-6">
-                  <div class="product-grid1">
-                    <div class="product-image1">
-                      <a href="#" class="image">
-                        <img class="pic-1" src="<?php echo $item->getItemImage(); ?>">
-                      </a>
-                      <ul class="product-links1">
-                        <li><a href="#"><i class="fa fa-shopping-bag"></i> Item Number Is: <?php echo $item->getItemNumber(); ?></a></li>
-
-                      </ul>
-                    </div>
-                    <div class="product-content1">
-                      <h3 class="title"><a href="#">Item Name:<?php echo $item->getItemTitle(); ?></a></h3>
-                      <div class="price">Rs.<?php echo $item->getEndPrice(); ?></div>
+                <div class="col-md-4 mb-4">
+                  <div class="product">
+                    <img src="<?php echo $dbItemImage; ?>" class="card-img-top" alt="Item Image">
+                    <div class="card-body">
+                      <h5 class="card-title"><?php echo $dbitemTitle; ?></h5>
+                      <p class="card-text"><?php echo $dbDescription; ?></p>
+                      <p class="card-text">Starting Bid: <?php echo $dbStartingBid; ?>LKR</p>
+                      <p class="card-text">End Price: <?php echo $dbEndPrice; ?>LKR</p>
+                      <p class="card-text">End Date: <?php echo $dbEndDate; ?></p>
+                      <a href="./php/item_description.php?item_id=<?php echo $dbitemNumber; ?>&seller_id=<?php echo $dbsid; ?>" class="btn btn-primary">Bid Now</a>
+                      <!-- Ensure that the seller ID ($dbsid) is properly included in the URL for item_description.php -->
                     </div>
                   </div>
                 </div>
+
               <?php } ?>
+
 
 
             </div>
@@ -154,10 +103,11 @@ if (isset($_SESSION["result"])) {
 
     <br><br><br>
     <?php
-  
-  include('footer.php');
 
-  ?></body>
+    include('footer.php');
+
+    ?>
+</body>
 
 
 

@@ -146,13 +146,14 @@ if (isset($_SESSION["seller"])) {
 								<div class="col-sm-9 text-secondary">
 									<input type="hidden" class="btn btn-primary px-4" name="id" value="<?php echo $seller->getSellerId(); ?>">
 									<button class="btn btn-primary px-4"> View History</button>
+									<br><br>
 								</div>
 
 							</div>
 						</form>
 						<form action="addItem.php" method="post">
-							<div class="row">
-								<div class="col-sm-5">Do you want to add an item?</div>
+							<div class="row"><br><br>
+								<div class="col-sm-5"><h6>Do you want to add an item?</h6></div>
 								<div class="col-sm-9 text-secondary">
 									<input type="hidden" class="btn btn-primary px-4" name="id" value="<?php echo $seller->getSellerId(); ?>">
 									<button class="btn btn-primary px-4"> Add Item</button>
