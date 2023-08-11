@@ -7,15 +7,13 @@
     <title>Untitled</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
-        /* Custom CSS to remove text underline */
         footer a.link-secondary {
             text-decoration: none;
         }
     </style>
 </head>
 
-<body>
-    <footer style="background-color: while;">
+    <footer style="background-color: white;" >
         <div class="container py-4 py-lg-5" style="background-color: while;">
             <div class="row justify-content-center">
                 <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
@@ -61,5 +59,4 @@
         </div>
     </footer>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-</body>
 </html>

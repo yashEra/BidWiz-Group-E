@@ -21,7 +21,7 @@
 
   ?>
 
-   <div class="box">
+   <div class="box" style="margin-top: 100px; margin-bottom:100px">
     <div class="form__container">
 
         <div class="top">
