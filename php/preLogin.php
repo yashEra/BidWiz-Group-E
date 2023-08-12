@@ -24,6 +24,12 @@
     <div class="form__container">
 
         <div class="top">
+            <?php
+                if(isset($_GET['error']) && $_GET['error'] == 2){
+                    echo '<strong class="text-danger">Before bidding, you need to log in.</strong>';
+                }
+
+            ?>
             <span class="span__1">Have an account?</span>
             <header class="header_1">Let's get started!</header>
         </div>

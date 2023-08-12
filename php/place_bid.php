@@ -1,4 +1,15 @@
 <?php
+
+require_once './classes/person.php';
+session_start();
+if (isset($_SESSION["seller"])) {
+	$seller = $_SESSION["seller"];
+} elseif(isset($_SESSION["buyer"])){ 
+	$seller = $_SESSION["buyer"];
+}else {
+	header("Location: ./prelogin.php?error=2");
+	exit();
+}
 // Replace with your database connection details
 $servername = "localhost";
 $username = "testuser";
@@ -27,27 +38,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                      VALUES ('$bidAmount', 1, 1, UNIX_TIMESTAMP(), $item_id)";
 
     if ($conn->query($insertBidSQL) === TRUE) {
-      // Update the current bid value in the item table
-      $updateItemSQL = "UPDATE item SET End_price = '$bidAmount' WHERE ItemNumber = $item_id";
-      if ($conn->query($updateItemSQL) === TRUE) {
         echo "Bid placed successfully.";
+        header("Location: ./sucssess.php?massage=2");
       } else {
         echo "Error updating current bid value: " . $conn->error;
       }
-    } else {
-      echo "Error placing bid: " . $conn->error;
     }
-  }
+
 } else {
   echo "Invalid request.";
 }
 
 $conn->close();
-?>
-
-  
-  
-  
-  
-  
-  

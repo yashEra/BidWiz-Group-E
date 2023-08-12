@@ -5,7 +5,9 @@
   }
   
   body {
-    background: linear-gradient(to right, #1d87ea 0%, #4693eb 100%);
+    /* background: linear-gradient(to right, #1d87ea 0%, #4693eb 100%); */
+    background: rgb(34,0,71);
+    background: linear-gradient(90deg, rgba(34,0,71,1) 0%, rgba(0,254,255,1) 100%);
     font-size: 12px;
   }
   
@@ -28,7 +30,7 @@
   
   .screen {
     position: relative;
-    background: #3e3e3e;
+    background: #ffffff;
     border-radius: 15px;
   }
   

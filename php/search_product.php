@@ -1,13 +1,10 @@
 <?php
 include('./includes/connect.php');
 include('./functions/common_function.php');
-// Call the search_product function
-search_product();
 
-?>
-<?php
 require_once './classes/person.php';
 session_start();
+search_product();
 
 ?>
 
@@ -15,7 +12,7 @@ session_start();
 <html>
 
 <head>
-	<link rel="stylesheet" href="../css/categories.css">
+	<!-- <link rel="stylesheet" href="../css/categories.css"> -->
 	<link href="./css/navbar.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -48,7 +45,7 @@ session_start();
 
 
 						<li class="dropdown__item">
-							<a href="faq.php" class="nav__link">FAQ</a>
+							<a href="faq.php" class="nav__link" style="text-decoration: none;">FAQ</a>
 						</li>
 
 						<li>
@@ -57,24 +54,36 @@ session_start();
 
 
 						<li class="dropdown__item">
-								<a href="contact.php" class="nav__link">Contact us</a>
+							<a href="contact.php" class="nav__link">Contact us</a>
 						</li>
 						<li>
-							<form class="d-flex"  action="search_product.php" method="GET" style="display:flex; align-items:center; justify-content:center; padding: 0 16px 0 16px;">
-							<div class="search-input-field">
-								<input class="search-input" style="padding: 8px; border-color: rgb(0, 162, 255);" type="search" placeholder="Search" aria-label="Search" name="search_data"> <!-- Change the input name to "search_data_product" -->
+							<form class="d-flex" action="search_product.php" method="GET" style="display:flex; align-items:center; justify-content:center; padding: 0 16px 0 16px;">
+								<div class="search-input-field">
+									<input class="search-input" style="padding: 8px; border-color: rgb(0, 162, 255);" type="search" placeholder="Search" aria-label="Search" name="search_data"> <!-- Change the input name to "search_data_product" -->
 								</div>
 								<input type="submit" value="Search" class="search-submit" name="search_data_product">
 							</form>
 
 
 
-						</li>
 						<li class="dropdown__item">
-							<a href="prelogin.php" class="nav__link">Login/Signup<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>
+							<?php
+							require_once './classes/person.php';
+							// session_start();
 
-
+							if (isset($_SESSION["buyer"])) {
+								$buyer = $_SESSION["buyer"];
+								echo '<a href="buyer_profile.php" class="nav__link">' . $buyer->getFirstName() . '<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>';
+							} elseif (isset($_SESSION["seller"])) {
+								$seller = $_SESSION["seller"];
+								echo '<a href="seller_profile.php" class="nav__link">' . $seller->getFirstName() . '<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>';
+							} else {
+								echo '<a href="prelogin.php" class="nav__link">Login/Signup<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>';
+							}
+							?>
 						</li>
+
+
 
 
 
