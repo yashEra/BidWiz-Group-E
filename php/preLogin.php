@@ -19,7 +19,8 @@
 
   ?>
 	
-   <div class="box">
+    <div class="box" style="margin-top: 100px">
+    <div class="box">
     <div class="form__container">
 
         <div class="top">

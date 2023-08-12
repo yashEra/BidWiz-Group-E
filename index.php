@@ -44,16 +44,16 @@ session_start();
 
 
 						<li class="dropdown__item">
-							<a href="../php/faq.php" class="nav__link">FAQ</a>
+							<a href="./php/faq.php" class="nav__link">FAQ</a>
 						</li>
 
 						<li>
-							<a href="../php/aboutus.php" class="nav__link">About us</a>
+							<a href="./php/aboutus.php" class="nav__link">About us</a>
 						</li>
 
 
 						<li class="dropdown__item">
-								<a href="../php/contact.php" class="nav__link">Contact us</a>
+								<a href="./php/contact.php" class="nav__link">Contact us</a>
 						</li>
             <li>
 							<form class="d-flex"  action="./php/search_product.php" method="GET" style="display:flex; align-items:center; justify-content:center; padding: 0 16px 0 16px;">

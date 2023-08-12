@@ -312,7 +312,7 @@ session_start();
                 </div>
               </div>
               <div class="member-info">
-                <h4>K.R.M.M Kashandawa</h4>
+                <h4>K.R.M.M Kahandawa</h4>
                 <span>UWU/CST/20/041</span>
                 
               </div>
