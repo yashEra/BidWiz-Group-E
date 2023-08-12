@@ -3,6 +3,9 @@
 require_once './classes/person.php';
 session_start();
 
+if (isset($_SESSION["buyer"])) {
+  $buyer = $_SESSION["buyer"];
+}
 ?>
 <html>
 
@@ -77,11 +80,9 @@ session_start();
         $end_date = strtotime($row['End_date']);
 
 
-        $bidding_open = (
-          
-          $current_bid < $end_price &&
+        $bidding_open = ($current_bid < $end_price &&
           time() >= $start_date &&
-          time() <= $end_date 
+          time() <= $end_date
           // time() >= $bidding_date
         );
 
@@ -108,21 +109,59 @@ session_start();
             <form action="place_bid.php" method="post">
               <input type="hidden" name="item_id" value="<?php echo $item_id; ?>">
               <div class="form-group">
-                <label for="bidAmount">Your Bid Amount:</label>
-                <input type="number" class="form-control" id="bidAmount" name="bidAmount" min="<?php echo $start_bid; ?>" max="<?php echo $end_price; ?>" required>
+                <label for="bidAmount" <?php echo (isset($bidding_open) && !$bidding_open) ? 'hidden' : ''; ?>>Your Bid Amount:</label>
+                <input type="number" class="form-control" id="bidAmount" name="bidAmount" min="<?php echo $start_bid; ?>" max="<?php echo $end_price; ?>" required <?php echo (isset($bidding_open) && !$bidding_open) ? 'hidden' : ''; ?>>
                 <?php if (isset($bidding_open) && !$bidding_open) : ?>
                   <div class="text-danger">
                     <?php
-                    if (time() >= $end_date) {
-                      echo "Times up!. Currently Bidding Closing! We are bidding open soon.";
-                    } elseif($current_bid >= $end_price){
-                      echo "Already someone got it!. Currently Bidding Closing! We are bidding open soon.";
+                    if ($current_bid < $end_price || time() >= $start_date) {
+                      echo '<strong>Times up!. Currently Bidding Closing! We are bidding open soon.</strong>';
+                    } 
+                    if (!$bidding_open) {
+                      if (isset($_GET['item_id']) && is_numeric($_GET['item_id'])) {
+                        $item_id = $_GET['item_id'];
+
+                        $highest_bid_sql = "SELECT * FROM bid WHERE ItemNumber = $item_id ORDER BY Bid_Price DESC LIMIT 1";
+                        $highest_bid_result = $con->query($highest_bid_sql);
+
+                        if ($highest_bid_result->num_rows > 0) {
+                          $highest_bid_row = $highest_bid_result->fetch_assoc();
+                          $highest_bidder_id = $highest_bid_row['Buyer_id'];
+
+                          $buyer_sql = "SELECT * FROM buyer WHERE Buyer_id = $highest_bidder_id";
+                          $buyer_result = $con->query($buyer_sql);
+                          $buyer_data = $buyer_result->fetch_assoc();
+
+                          echo '<div class="product d-flex justify-content-center">';
+                          echo '<div class="">';
+                          echo '<div class="card-header bg-success text-white">';
+                          echo '<h3 class="card-title">Winner Details</h3>';
+                          echo '</div>';
+                          echo '<div class="card-body">';
+                          echo '<p><strong>Bid Amount:</strong> ' . $highest_bid_row['Bid_Price'] . 'LKR</p>';
+                          echo '<p><strong>Buyer Name:</strong> ' . $buyer_data['Buyer_FirstName'] . ' ' . $buyer_data['Buyer_LastName'] . '</p>';
+                          echo '<p><strong>Buyer Email:</strong> ' . $buyer_data['Buyer_email'] . '</p>';
+
+                          // if ($highest_bidder_id == $buyer) {
+                            
+                            echo '<a href="buy_now.php?item_id=' . $item_id . '" class="btn btn-success">Buy Now</a>';
+
+                        // } else {
+                        //     echo '<button class="btn btn-success" disabled>Only Can Buy owener of winner account. if You want buy login winner account now!</button>';
+                        // }
+                          echo '</div>';
+                          echo '</div>';
+                          echo '</div>';
+                        }
+                      }
+
+                      $con->close();
                     }
                     ?>
-                  </div>
+
                 <?php endif; ?>
               </div>
-              <button type="submit" <?php echo (isset($bidding_open) && !$bidding_open) ? 'disabled' : ''; ?>>Place Bid</button>
+              <button type="submit" <?php echo (isset($bidding_open) && !$bidding_open) ? 'hidden' : ''; ?>>Place Bid</button>
             </form>
 
           </div>
@@ -134,10 +173,25 @@ session_start();
     } else {
       echo "Invalid item ID.";
     }
+    // if (time() >= $end_date ) {
+    //   echo "Times up!. Currently Bidding Closing! We are bidding open soon.";
+    // } elseif($current_bid >= $end_price){
+    //   echo "Already someone got it!. Currently Bidding Closing! We are bidding open soon.";
+    // }
 
-    $con->close();
     ?>
-  </div>
+  </div><?php
+        // ...
+
+
+        // ...
+
+
+        ?>
+
+
+
+
   <?php
 
   include('footer.php');

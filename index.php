@@ -171,7 +171,7 @@ session_start();
 
     <div class="container mt-4">
       <!-- <div class="container mt-4"> -->
-      <h2>Category 1 Items</h2>
+      <h2>Computers</h2>
 
       <div class="row">
         <?php
@@ -230,27 +230,67 @@ session_start();
     <!-- ********************************************************************* -->
 
     <div class="container mt-4">
-      <!-- <div class="container mt-4"> -->
-      <h2>Category 2 Items</h2>
+      <h2>Electrical</h2>
 
       <div class="row">
         <?php
-        // Replace with your database connection details
-        // $servername = "localhost";
-        // $username = "testuser";
-        // $password = "testuser";
-        // $dbname = "bidwiz";
         include('./php/includes/connect.php');
 
-        // Create connection
-        // $conn = new mysqli($servername, $username, $password, $dbname);
-
-        // Check connection
         if ($con->connect_error) {
           die("Connection failed: " . $con->connect_error);
         }
 
-        // Select items from Category 1
+
+        $sql = "SELECT * FROM item WHERE Category_id = 2";
+        $result = $con->query($sql);
+
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+        ?>
+            <div class="col-md-4 mb-4">
+              <div class="product ">
+              <img src="<?php echo $row['Item_image']; ?>" class="card-img-top" alt="Item Image">
+            <div class="card-body">
+              <h5 class="card-title"><?php echo $row['Item_Title']; ?></h5>
+              <p class="card-text"><?php echo $row['Description']; ?></p>
+              <p class="card-text">Starting Bid: <?php echo $row['Starting_bid_price']; ?>LKR</p>
+              <p class="card-text">End Price: <?php echo $row['End_price']; ?>LKR</p>
+              <p class="card-text">End Date: <?php echo $row['End_date']; ?></p>
+              <a href="./php/item_description.php?item_id=<?php echo $row['ItemNumber']; ?>" class="btn btn-primary">Bid Now</a>
+            </div>
+              </div>
+            </div>
+        <?php
+          }
+        } else {
+          echo "No items found in Category 1.";
+        }
+
+        $con->close();
+        ?>
+      </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- ****************************************************************************** -->
+
+        <!-- ********************************************************************* -->
+
+        <div class="container mt-4">
+      <h2>Cloath</h2>
+
+      <div class="row">
+        <?php
+        include('./php/includes/connect.php');
+
+        if ($con->connect_error) {
+          die("Connection failed: " . $con->connect_error);
+        }
+
+
         $sql = "SELECT * FROM item WHERE Category_id = 2";
         $result = $con->query($sql);
 

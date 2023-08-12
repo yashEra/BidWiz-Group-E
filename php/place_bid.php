@@ -1,4 +1,15 @@
 <?php
+
+require_once './classes/person.php';
+session_start();
+if (isset($_SESSION["seller"])) {
+	$seller = $_SESSION["seller"];
+} elseif(isset($_SESSION["buyer"])){ 
+	$seller = $_SESSION["buyer"];
+}else {
+	header("Location: ./prelogin.php?error=2");
+	exit();
+}
 // Replace with your database connection details
 $servername = "localhost";
 $username = "testuser";
@@ -28,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($conn->query($insertBidSQL) === TRUE) {
         echo "Bid placed successfully.";
+        header("Location: ./sucssess.php?massage=2");
       } else {
         echo "Error updating current bid value: " . $conn->error;
       }
@@ -38,4 +50,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $conn->close();
-?>
