@@ -44,10 +44,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         if ($pstmt->execute()) {
-            // Unset all session variables
             $_SESSION = array();
 
-            // Destroy the session
+            
             session_destroy();
 
 

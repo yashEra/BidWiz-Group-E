@@ -79,7 +79,7 @@ if (isset($_SESSION["seller"])) {
 									<br><form action="addItem.php" method="post">
 												<input type="hidden" class="btn btn-primary px-4" name="id" value="<?php echo $seller->getSellerId(); ?>">
 												<button class="btn btn-outline-primary"> Add Item</button>
-									</form>
+												
 
 								</div>
 							</div>

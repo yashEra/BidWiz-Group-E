@@ -2,10 +2,8 @@
 require_once './classes/person.php';
 session_start();
 if (isset($_SESSION["seller"])) {
-  // User is logged in, retrieve the user object
   $seller = $_SESSION["seller"];
 } else {
-  // Redirect the user to login.php if not logged in
   header("Location: ./seller_profile.php?error=2");
   exit();
 }
@@ -80,7 +78,6 @@ if (isset($_SESSION["seller"])) {
             <div class="col-sm-9 text-secondary">
                 <input type="hidden" class="btn btn-primary px-4" name="id" value="<?php echo $seller->getSellerId(); ?>">
                 <button class="btn btn-primary px-4"> Add Item</button>
-                <?php //echo "<h2>$seller->getSellerId()</h2>"; ?>
             </div>
             <!--  -->
         </form>

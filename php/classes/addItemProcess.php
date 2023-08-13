@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         move_uploaded_file($itemImageTemp, $movieLocation);
         
-        header("Location: ../seller_profile.php");
+        header("Location: ../seller_profile.php?success=1");
     } else {
         echo "Error: " . $stmt->error;
     }

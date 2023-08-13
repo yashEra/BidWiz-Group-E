@@ -5,10 +5,8 @@
 require_once './classes/person.php';
 session_start();
 if (isset($_SESSION["seller"])) {
-  // User is logged in, retrieve the user object
   $seller = $_SESSION["seller"];
 } else {
-  // Redirect the user to login.php if not logged in
   header("Location: ./login.php?error=2");
   exit();
 }
