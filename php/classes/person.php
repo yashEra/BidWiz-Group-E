@@ -7,16 +7,18 @@ class person
     private $LastName;
     private $Email;
     private $Password;
-    private $Phone;
+    private $phoneno;
     private $address;
+    private $propic;
 
-    function __construct($FirstName, $LastName, $Email, $Password,$Phone,$address)
+    function __construct($FirstName, $LastName, $Email, $Password,$propic,$phoneno,$address)
     {
         $this->FirstName = $FirstName;
         $this->LastName = $LastName;
         $this->Email = $Email;
         $this->Password = $Password;
-        $this->Phone = $Phone;
+        $this->propic= $propic;
+        $this->phoneno = $phoneno;
         $this->address = $address;
     }
     public function getFirstName()
@@ -31,17 +33,21 @@ class person
     {
         return $this->Email;
     }
+    public function getphoneno()
+    {
+        return $this->phoneno;
+    }
+    public function getaddress()
+    {
+        return $this->address;
+    }
     public function getPassword()
     {
         return $this->Password;
     }
-    public function getPhoneNo()
-    {
-        return $this->Phone;
-    }
-    public function getAddress()
-    {
-        return $this->address;
+    
+    public function getpic(){
+        return $this->propic;
     }
 }
 
@@ -49,9 +55,9 @@ class buyer extends person
 {
     private $Buyer_id;
     
-    function __construct($FirstName, $LastName, $Email, $Password, $Phone, $Buyer_id, $address)
+    function __construct($FirstName, $LastName, $Email, $Password, $propic,$phoneno,$address, $Buyer_id )
     {
-        parent::__construct($FirstName, $LastName, $Email, $Password,$Phone,$address);
+        parent::__construct($FirstName, $LastName, $Email, $Password,$propic,$phoneno,$address);
         $this->Buyer_id = $Buyer_id;
     }
     public function getbuyerId()
@@ -65,9 +71,9 @@ class seller extends person
 {
     private $Seller_id;
     
-    function __construct($FirstName, $LastName, $Email, $Password, $address, $Seller_id, $Phone)
+    function __construct($FirstName, $LastName, $Email, $Password,  $propic,$phoneno,$address,  $Seller_id)
     {
-        parent::__construct($FirstName, $LastName, $Email, $Password,$Phone,$address);
+        parent::__construct($FirstName, $LastName, $Email, $Password,$propic,$phoneno,$address);
         $this->Seller_id = $Seller_id;
     }
     public function getsellerId()

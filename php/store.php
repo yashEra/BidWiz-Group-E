@@ -33,7 +33,12 @@ if (isset($_SESSION["result"])) {
   <title>BidWiz</title>
 
   <style>
-
+.h2 {
+  font-size: 72px;
+  background: -webkit-linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
   </style>
 
 </head>
@@ -56,7 +61,8 @@ if (isset($_SESSION["result"])) {
       <div class="row">
         <div class="col-md-12">
           <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
-            <h2>Your Previous Items</h2>
+            <br><br><br><br>
+          <h2 class="h2">Your History Items</h2>
             <div class="row">
 
 
@@ -82,10 +88,7 @@ if (isset($_SESSION["result"])) {
                       <p class="card-text"><?php echo $dbDescription; ?></p>
                       <p class="card-text">Starting Bid: <?php echo $dbStartingBid; ?>LKR</p>
                       <p class="card-text">End Price: <?php echo $dbEndPrice; ?>LKR</p>
-                      <p class="card-text">End Date: <?php echo $dbEndDate; ?></p>
-                      <a href="./php/item_description.php?item_id=<?php echo $dbitemNumber; ?>&seller_id=<?php echo $dbsid; ?>" class="btn btn-primary">Bid Now</a>
-                      <!-- Ensure that the seller ID ($dbsid) is properly included in the URL for item_description.php -->
-                    </div>
+                      <p class="card-text">End Date: <?php echo $dbEndDate; ?></p></div>
                   </div>
                 </div>
 

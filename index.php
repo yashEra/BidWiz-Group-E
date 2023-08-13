@@ -74,7 +74,7 @@ session_start();
 								$seller = $_SESSION["seller"];
 								echo '<a href="./php/seller_profile.php" class="nav__link">' . $seller->getFirstName() . '<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>';
 							} else {
-								echo '<a href="/php/prelogin.php" class="nav__link">Login/Signup<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>';
+								echo '<a href="./php/prelogin.php" class="nav__link">Login/Signup<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>';
 							}
 							?>
 						</li>

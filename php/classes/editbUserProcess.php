@@ -71,11 +71,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $dbPhoneNo = $row->Buyer_PhoneNumber;
                     $dbid = $row->Buyer_id;
                     $dbaddress = $row->Buyer_Address;
+                    $propic = $row->profilePic;
                 }
                
                 
         
-                    $buyer = new buyer($dbFirstName, $dbLastName, $dbEmail, $dbpassword,$dbaddress, $dbid,$dbPhoneNo);
+                    $buyer = new buyer($dbFirstName,$dbLastName,$dbEmail,$dbpassword,$propic,$dbPhoneNo,$dbaddress,$dbid);
                     session_start();
                     $_SESSION["buyer"] = $buyer;
                     header("Location: ../buyer_profile.php");
