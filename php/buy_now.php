@@ -16,7 +16,7 @@ class TransactionHandler {
     public function saveTransaction($transactionId, $transactionAmount) {
         try {
             // Prepare and execute the SQL query to insert data into the database
-            $stmt = $this->db->prepare("INSERT INTO transaction (Transaction_id, Transaction_Amount, Transaction_Status) VALUES (:transactionId, :transactionAmount, 'Yes')");
+            $stmt = $this->db->prepare("INSERT INTO transaction (Transaction_id, Transaction_Amount) VALUES (:transactionId, :transactionAmount)");
             $stmt->bindParam(':transactionId', $transactionId);
             $stmt->bindParam(':transactionAmount', $transactionAmount);
             $stmt->execute();

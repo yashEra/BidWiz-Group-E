@@ -56,7 +56,7 @@ session_start();
           while ($item_data = $items_result->fetch_assoc()) {
             echo "<div class='col-md-4'>";
             echo "<div class='product mb-4 shadow-sm'>";
-            echo "<img src='" . $item_data['Item_image'] . "' class='card-img-top' alt='Item Image'>";
+            echo "<img src='" . $item_data['Item_image'] . "' alt='Item Image'>";
             echo "<div class='card-body'>";
             echo "<h5 class='card-title'>" . $item_data['Item_Title'] . "</h5>";
             echo "<p class='card-text'>" . $item_data['Description'] . "</p>";

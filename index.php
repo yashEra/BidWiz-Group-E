@@ -198,7 +198,7 @@ session_start();
         ?>
             <div class="col-md-4 mb-4">
               <div class="product ">
-              <img src="<?php echo $row['Item_image']; ?>" class="card-img-top" alt="Item Image">
+              <img src="<?php echo $row['Item_image']; ?>"  alt="Item Image">
             <div class="card-body">
               <h5 class="card-title"><?php echo $row['Item_Title']; ?></h5>
               <p class="card-text"><?php echo $row['Description']; ?></p>
@@ -249,7 +249,7 @@ session_start();
         ?>
             <div class="col-md-4 mb-4">
               <div class="product ">
-              <img src="<?php echo $row['Item_image']; ?>" class="card-img-top" alt="Item Image">
+              <img src="<?php echo $row['Item_image']; ?>"  alt="Item Image">
             <div class="card-body">
               <h5 class="card-title"><?php echo $row['Item_Title']; ?></h5>
               <p class="card-text"><?php echo $row['Description']; ?></p>
@@ -299,7 +299,7 @@ session_start();
         ?>
             <div class="col-md-4 mb-4">
               <div class="product ">
-              <img src="<?php echo $row['Item_image']; ?>" class="card-img-top" alt="Item Image">
+              <img src="<?php echo $row['Item_image']; ?>"  alt="Item Image">
             <div class="card-body">
               <h5 class="card-title"><?php echo $row['Item_Title']; ?></h5>
               <p class="card-text"><?php echo $row['Description']; ?></p>
