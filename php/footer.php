@@ -43,7 +43,7 @@
                 <div class="col-lg-3 text-center text-lg-start d-flex flex-column align-items-center order-first align-items-lg-start order-lg-last item social">
                     <div class="fw-bold d-flex align-items-center mb-2"></div>
                     <p class="text-muted">
-                        Sem eleifend donec molestie, integer quisque orci aliquam.
+                       Get your dream item from BidWiz!
                     </p>
                 </div>
             </div>

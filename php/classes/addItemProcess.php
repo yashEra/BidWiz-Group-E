@@ -48,13 +48,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $stmt = $conn->prepare("INSERT INTO item (Category_id, Item_Title, Starting_bid_price, Start_date, End_date, End_price, Seller_id, Description, Item_image, Item_keywords)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("isssisssss", $categoryId, $itemTitle, $startingBid, $startDate, $endDate, $endBid, $sellerId, $description, $targetFile, $itemKeywords);
+    $stmt->bind_param("isssssssss", $categoryId, $itemTitle, $startingBid, $startDate, $endDate, $endBid, $sellerId, $description, $targetFile, $itemKeywords);
 
     if ($stmt->execute()) {
 
         move_uploaded_file($itemImageTemp, $movieLocation);
         
-        echo "Item added successfully.";
+
+        header("Location: ../addItem.php");
     } else {
         echo "Error: " . $stmt->error;
     }

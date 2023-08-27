@@ -12,7 +12,7 @@ search_product();
 <html>
 
 <head>
-	<!-- <link rel="stylesheet" href="../css/categories.css"> -->
+	
 	<link href="./css/navbar.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -38,9 +38,8 @@ search_product();
 				<div class="nav__menu" id="nav-menu">
 					<ul class="nav__list">
 						<li class="dropdown__item">
-							<div class="nav__link dropdown__button">
-								Categories
-							</div>
+						<a href="category.php" class="nav__link" style="text-decoration: none;">Categories</a>
+
 						</li>
 
 
@@ -95,7 +94,7 @@ search_product();
 			</nav>
 		</header>
 
-		<!--=============== MAIN JS ===============-->
+		
 		<script src="../js/navbar.js"></script>
 	</navbar>
 

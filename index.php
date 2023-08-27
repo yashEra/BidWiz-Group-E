@@ -37,9 +37,8 @@ session_start();
         <div class="nav__menu" id="nav-menu">
           <ul class="nav__list">
             <li class="dropdown__item">
-              <div class="nav__link dropdown__button">
-                Categories
-              </div>
+							<a href="./php/category.php" class="nav__link" style="text-decoration: none;">Categories</a>
+
             </li>
 
 
@@ -65,7 +64,6 @@ session_start();
             <li class="dropdown__item">
               <?php
               require_once './php/classes/person.php';
-              // session_start();
 
               if (isset($_SESSION["buyer"])) {
                 $buyer = $_SESSION["buyer"];
@@ -77,13 +75,7 @@ session_start();
                 echo '<a href="/php/prelogin.php" class="nav__link">Login/Signup<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>';
               }
               ?>
-            </li>
 
-
-
-
-
-            </li>
 
 
           </ul>
@@ -170,7 +162,7 @@ session_start();
 
 
   <div class="container mt-4">
-    <h2>Computers</h2>
+    <h2>Smart Devicess</h2>
 
     <div class="row">
       <?php
@@ -284,7 +276,7 @@ session_start();
       }
 
 
-      $sql = "SELECT * FROM item WHERE Category_id = 2";
+      $sql = "SELECT * FROM item WHERE Category_id = 3";
       $result = $con->query($sql);
 
       if ($result->num_rows > 0) {
@@ -362,8 +354,7 @@ session_start();
           <div class="col-lg-3 text-center text-lg-start d-flex flex-column align-items-center order-first align-items-lg-start order-lg-last item social">
             <div class="fw-bold d-flex align-items-center mb-2"></div>
             <p class="text-muted">
-              Sem eleifend donec molestie, integer quisque orci aliquam.
-            </p>
+            Get your dream item from BidWiz!            </p>
           </div>
         </div>
         <hr>

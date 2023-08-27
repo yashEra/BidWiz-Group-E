@@ -5,10 +5,8 @@
 require_once './classes/person.php';
 session_start();
 if (isset($_SESSION["seller"])) {
-  // User is logged in, retrieve the user object
   $seller = $_SESSION["seller"];
 } else {
-  // Redirect the user to login.php if not logged in
   header("Location: ./login.php?error=2");
   exit();
 }
@@ -31,6 +29,17 @@ if (isset($_SESSION["seller"])) {
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <title>BidWiz</title>
+	<style>
+	.container1 {
+		margin: auto;
+		background: linear-gradient(to bottom right, #00c6ff, #0072ff);
+		padding: 50px;
+		border-radius: 10px;
+		box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.2);
+		width: 1000px;
+		height: 450px;
+	}
+</style>
 
 </head>
 
@@ -41,15 +50,16 @@ if (isset($_SESSION["seller"])) {
   include('navbar.php');
 
   ?>
+  <br><br><br>
 
-<div class="container">
+<div class="container1">
 		<div class="main-body">
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="card">
 						<div class="card-body">
 							<div class="d-flex flex-column align-items-center text-center">
-								<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+								<img src="<?php echo $seller->getpic();?>" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
 								<div class="mt-3">
 									<h4><?php echo $seller->getFirstName(). " " . $seller->getLastName();?> </h4>
 									<h6>(Seller)</h6>
@@ -90,10 +100,10 @@ if (isset($_SESSION["seller"])) {
 							</div>
 							<div class="row mb-3">
 								<div class="col-sm-3">
-									<h6 class="mb-0">Phone</h6>
+									<h6 class="mb-0">Phone Number</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">
-								<input type="text" name="phone" class="form-control" value="<?php echo $seller->getPhoneNo() ?>">
+								<input type="text" name="phone" class="form-control" value="<?php echo $seller->getphoneno() ?> ">
 								</div>
 							</div>
 							<div class="row mb-3">
@@ -101,7 +111,7 @@ if (isset($_SESSION["seller"])) {
 									<h6 class="mb-0">Address</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">
-								<input type="text" name="address" class="form-control" value="<?php echo $seller->getAddress() ?>">
+								<input type="text" name="address" class="form-control" value="<?php echo $seller->getaddress() ?>">
 								</div>
 							</div>
 							<div class="row">

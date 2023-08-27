@@ -83,7 +83,6 @@ if (isset($_SESSION["buyer"])) {
         $bidding_open = ($current_bid < $end_price &&
           time() >= $start_date &&
           time() <= $end_date
-          // time() >= $bidding_date
         );
 
     ?>
@@ -99,9 +98,9 @@ if (isset($_SESSION["buyer"])) {
             <a href="storeview.php?seller_id=<?php echo $row['Seller_id']; ?>" style="width:50%;">View Store</a>
 
             <p class="item-description"><?php echo $row['Description']; ?></p>
-            Price Range: $<?php echo $start_bid; ?> - $<?php echo $end_price; ?><br>
+            Price Range: <?php echo $start_bid; ?>LKR - <?php echo $end_price; ?>LKR<br>
             <div class="item-price">
-              <strong>Current Bid: $<?php echo $current_bid; ?></strong><br>
+              <strong>Current Bid: <?php echo $current_bid; ?>LKR</strong><br>
               End Date: <?php echo $row['End_date']; ?>
             </div>
 
@@ -142,13 +141,10 @@ if (isset($_SESSION["buyer"])) {
                           echo '<p><strong>Buyer Name:</strong> ' . $buyer_data['Buyer_FirstName'] . ' ' . $buyer_data['Buyer_LastName'] . '</p>';
                           echo '<p><strong>Buyer Email:</strong> ' . $buyer_data['Buyer_email'] . '</p>';
 
-                          // if ($highest_bidder_id == $buyer) {
                             
                             echo '<a href="buy_now.php?item_id=' . $item_id . '" class="btn btn-success">Buy Now</a>';
 
-                        // } else {
-                        //     echo '<button class="btn btn-success" disabled>Only Can Buy owener of winner account. if You want buy login winner account now!</button>';
-                        // }
+
                           echo '</div>';
                           echo '</div>';
                           echo '</div>';
@@ -173,21 +169,10 @@ if (isset($_SESSION["buyer"])) {
     } else {
       echo "Invalid item ID.";
     }
-    // if (time() >= $end_date ) {
-    //   echo "Times up!. Currently Bidding Closing! We are bidding open soon.";
-    // } elseif($current_bid >= $end_price){
-    //   echo "Already someone got it!. Currently Bidding Closing! We are bidding open soon.";
-    // }
+
 
     ?>
-  </div><?php
-        // ...
-
-
-        // ...
-
-
-        ?>
+  </div>
 
 
 
@@ -198,7 +183,7 @@ if (isset($_SESSION["buyer"])) {
 
   ?>
 
-  <!-- Include Bootstrap JS and jQuery -->
+>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

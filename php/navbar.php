@@ -1,4 +1,3 @@
-<!--connect file-->
 <?php
 include('./includes/connect.php');
 
@@ -13,7 +12,6 @@ session_start();
 
 <head>
 	<link rel="stylesheet" href="../css/categories.css">
-	<!-- <link rel="stylesheet" href="./css/preLogin.css"> -->
 	<link href="./css/navbar.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -36,12 +34,10 @@ session_start();
 						<i class="ri-close-line nav__toggle-close"></i>
 					</div>
 				</div>
-				<div class="nav__menu" id="nav-menu">
 					<ul class="nav__list">
 						<li class="dropdown__item">
-							<div class="nav__link dropdown__button">
-								Categories
-							</div>
+						<a href="category.php" class="nav__link" style="text-decoration: none;">Categories</a>
+
 						</li>
 
 
@@ -70,7 +66,6 @@ session_start();
 						<li class="dropdown__item">
 							<?php
 							require_once './classes/person.php';
-							// session_start();
 
 							if (isset($_SESSION["buyer"])) {
 								$buyer = $_SESSION["buyer"];
@@ -96,7 +91,6 @@ session_start();
 			</nav>
 		</header>
 
-		<!--=============== MAIN JS ===============-->
 		<script src="../js/navbar.js"></script>
 	</navbar>
 

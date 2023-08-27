@@ -85,7 +85,6 @@ $result = mysqli_query($connection, $query);
                         </td>
                     </tr>
 
-                    <!-- Edit Category Modal -->
                     <div class="modal fade" id="editCategoryModal<?php echo $row['Category_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -109,7 +108,6 @@ $result = mysqli_query($connection, $query);
                         </div>
                     </div>
 
-                    <!-- Delete Category Modal -->
                     <div class="modal fade" id="deleteCategoryModal<?php echo $row['Category_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="deleteCategoryModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">

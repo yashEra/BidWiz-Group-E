@@ -59,7 +59,6 @@
 						<li class="dropdown__item">
 							<?php
 							require_once '../classes/person.php';
-							// session_start();
 
 							if (isset($_SESSION["buyer"])) {
 								$buyer = $_SESSION["buyer"];
@@ -85,7 +84,6 @@
 			</nav>
 		</header>
 
-		<!--=============== MAIN JS ===============-->
 		<script src="../js/navbar.js"></script>
 	</navbar> 	
 
@@ -99,7 +97,7 @@
             <header class="header_1">Admin Login</header>
         </div>
 
-		<form action="adminProcess.php" method="post">
+		<form action="index.php" method="post">
 
         <div class="input-field">
             <input type="text" class="input" placeholder="Email" id="" name="email">

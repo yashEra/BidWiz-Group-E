@@ -41,16 +41,14 @@ class UserRegistration {
           
             try {
                 if ($userType == '1') {
-                    $sql = "INSERT INTO `buyer` (Buyer_FirstName, Buyer_LastName, Buyer_Password, Buyer_email) VALUES ('$firstName', '$lastName', '$hashedPassword', '$email')";
+                    $sql = "INSERT INTO `buyer` (Buyer_FirstName, Buyer_LastName, Buyer_Password, Buyer_email, profilePic) VALUES ('$firstName', '$lastName', '$hashedPassword', '$email', '../images/default-user.jpg')";
                 } elseif ($userType == '2') {
-                    $sql = "INSERT INTO `seller` (Seller_FirstName, Seller_LastName, Seller_Password, Seller_email) VALUES ('$firstName', '$lastName', '$hashedPassword', '$email')";
+                    $sql = "INSERT INTO `seller` (Seller_FirstName, Seller_LastName, Seller_Password, Seller_email, profilePic) VALUES ('$firstName', '$lastName', '$hashedPassword', '$email', '../images/default-user.jpg')";
                 }
                 
                 $conn->exec($sql);
-                echo "User registered successfully.";
-
               
-                header("Location:../prelogin.php");
+                header("Location: ../prelogin.php");
                 exit(); 
             } catch (PDOException $e) {
                 echo "Error: " . $e->getMessage();

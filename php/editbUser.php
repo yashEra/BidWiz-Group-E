@@ -31,6 +31,17 @@ if (isset($_SESSION["buyer"])) {
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <title>BidWiz</title>
+	<style>
+	.container1 {
+		margin: auto;
+		background: linear-gradient(to bottom right, #00c6ff, #0072ff);
+		padding: 50px;
+		border-radius: 10px;
+		box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.2);
+		width: 1000px;
+		height: 450px;
+	}
+</style>
 
 </head>
 
@@ -42,14 +53,16 @@ if (isset($_SESSION["buyer"])) {
 
   ?>
 
-<div class="container">
+<br><br><br>
+
+<div class="container1">
 		<div class="main-body">
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="card">
 						<div class="card-body">
 							<div class="d-flex flex-column align-items-center text-center">
-								<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+								<img src="<?php echo $buyer->getpic();?>" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
 								<div class="mt-3">
 									<h4><?php echo $buyer->getFirstName(). " " . $buyer->getLastName();?> </h4>
 									<h6>(Buyer)</h6>
@@ -90,10 +103,10 @@ if (isset($_SESSION["buyer"])) {
 							</div>
 							<div class="row mb-3">
 								<div class="col-sm-3">
-									<h6 class="mb-0">Phone</h6>
+									<h6 class="mb-0">Phone Number</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">
-								<input type="text" name="phone" class="form-control" value="<?php echo $buyer->getPhoneNo() ?>">
+								<input type="text" name="phone" class="form-control" value="<?php echo $buyer->getphoneno() ?> ">
 								</div>
 							</div>
 							<div class="row mb-3">
@@ -101,7 +114,7 @@ if (isset($_SESSION["buyer"])) {
 									<h6 class="mb-0">Address</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">
-								<input type="text" name="address" class="form-control" value="<?php echo $buyer->getAddress() ?>">
+								<input type="text" name="address" class="form-control" value="<?php echo $buyer->getaddress() ?>">
 								</div>
 							</div>
 							<div class="row">

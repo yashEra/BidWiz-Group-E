@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         $con = $dbcon->getConnection();
-        $query = "UPDATE bidwiz.seller SET Seller_FirstName = ?, Seller_LastName = ?, Seller_email = ?, Seller_PhoneNumber = ?, Seller_Address = ? WHERE Seller_id = ?";
+        $query = "UPDATE bidwiz.seller SET Seller_FirstName = ?, Seller_LastName = ?, Seller_email = ?, Seller_PhoneNumber = ? , Seller_Address = ? WHERE Seller_id = ?";
         $pstmt = $con->prepare($query);
         $pstmt->bindValue(1, $firstName);
         $pstmt->bindValue(2, $lastName);
@@ -44,10 +44,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         if ($pstmt->execute()) {
-            // Unset all session variables
             $_SESSION = array();
 
-            // Destroy the session
+            
             session_destroy();
 
 
@@ -68,14 +67,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $dbFirstName = $row->Seller_FirstName;
                     $dbLastName = $row->Seller_LastName;
                     $dbEmail = $row->Seller_email;
-                    $dbPhoneNo = $row->Seller_PhoneNumber;
                     $dbid = $row->Seller_id;
+                    $dbphone = $row->Seller_PhoneNumber;
                     $dbaddress = $row->Seller_Address;
+                    $propic = $row->profilePic;
                 }
                
                 
         
-                    $buyer = new buyer($dbFirstName, $dbLastName, $dbEmail, $dbpassword,$dbaddress, $dbid,$dbPhoneNo);
+                    $seller = new seller($dbFirstName,$dbLastName,$dbEmail,$dbpassword,$propic,$dbphone,$dbaddress,$dbid);
                     session_start();
                     $_SESSION["seller"] = $seller;
                     header("Location: ../seller_profile.php");

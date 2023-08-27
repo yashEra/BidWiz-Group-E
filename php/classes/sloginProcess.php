@@ -35,14 +35,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $dbPhoneNo = $row->Seller_PhoneNumber;
             $dsid = $row->Seller_id;
             $dbaddress = $row->Seller_Address;
+            $propic = $row->profilePic;
         }
-       ;
+       
         if (password_verify($password, $dbpassword)) {
            
-            $seller = new seller($dbFirstName, $dbLastName, $dbEmail, $dbpassword,$dbaddress, $dsid, $dbPhoneNo);
+            $seller = new seller($dbFirstName, $dbLastName, $dbEmail, $dbpassword, $propic, $dbPhoneNo, $dbaddress, $dsid);
             session_start();
             $_SESSION["seller"] = $seller;
-            header("Location: ../seller_profile.php");
+            header("Location: ../../index.php");
         exit;
         }else{
             
