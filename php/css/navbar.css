@@ -275,7 +275,7 @@ a {
 }
 
 @media screen and (min-width: 1118px) {
-  .nav {
+  .navN {
     height: calc(var(--header-height) + 2rem);
     display: flex;
     justify-content: space-between;
@@ -288,7 +288,7 @@ a {
     column-gap: 3rem;
     height: 100%;
   }
-  .nav li {
+  .navN li {
     display: flex;
   }
   .nav__link {
