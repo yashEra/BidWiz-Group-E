@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 require_once './php/classes/person.php';
-// session_start();
+session_start();
 
 ?>
 <html lang="en">
