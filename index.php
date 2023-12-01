@@ -23,7 +23,7 @@ require_once './php/classes/person.php';
 
   <navbar class="navbar__section">
     <header class="nav__header">
-      <nav class="nav nav__container">
+      <nav class="navN nav__container">
         <div class="nav__data">
           <a href="index.php" class="nav__logo">
             BidWiz

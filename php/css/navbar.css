@@ -76,7 +76,7 @@ a {
   z-index: var(--z-fixed);
 }
 
-.nav {
+.navN {
   height: var(--header-height);
 }
 .nav__data {
