@@ -68,10 +68,10 @@
 
 							if (isset($_SESSION["buyer"])) {
 								$buyer = $_SESSION["buyer"];
-								echo '<a href="buyer_profile.php" class="nav__link">' . $buyer->getFirstName() . '<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>';
+								echo '<a href="buyer_profile.php" class="nav__link">' . $buyer->getFirstName() . '<img src="' . $buyer->getpic() . '" alt="Buyer" class="rounded-circle p-1 bg-primary m-2" width="50"></a>';
 							} elseif (isset($_SESSION["seller"])) {
 								$seller = $_SESSION["seller"];
-								echo '<a href="seller_profile.php" class="nav__link">' . $seller->getFirstName() . '<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>';
+								echo '<a href="seller_profile.php" class="nav__link">' . $seller->getFirstName() . '<img src="' . $seller->getpic() . '" alt="Seller" class="rounded-circle p-1 bg-primary m-2" width="50"></a>';
 							} else {
 								echo '<a href="prelogin.php" class="nav__link">Login/Signup<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>';
 							}

@@ -4,17 +4,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="./css/navbar.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./php/css/product-card.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="./css/navbar.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./php/css/product-card.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <title>BidWiz- seller history</title>
 </head>
 
 <body>
-<navbar class="navbar__section">
+  <navbar class="navbar__section">
     <!--=============== HEADER ===============-->
     <header class="nav__header">
       <nav class="nav nav__container">
@@ -134,8 +134,18 @@
 
             </li>
             <li class="dropdown__item">
-              <a href="./html/Login.html" class="nav__link">Login/Signup<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>
-
+              <?php
+              require_once './classes/person.php';
+							if (isset($_SESSION["buyer"])) {
+								$buyer = $_SESSION["buyer"];
+								echo '<a href="buyer_profile.php" class="nav__link">' . $buyer->getFirstName() . '<img src="' . $buyer->getpic() . '" alt="Buyer" class="rounded-circle p-1 bg-primary m-2" width="50"></a>';
+							} elseif (isset($_SESSION["seller"])) {
+								$seller = $_SESSION["seller"];
+								echo '<a href="seller_profile.php" class="nav__link">' . $seller->getFirstName() . '<img src="' . $seller->getpic() . '" alt="Seller" class="rounded-circle p-1 bg-primary m-2" width="50"></a>';
+							} else {
+								echo '<a href="prelogin.php" class="nav__link">Login/Signup<i style="padding-left: 20px;" class="fa fa-user" aria-hidden="true"></i></a>';
+							}
+              ?>
 
             </li>
           </ul>
@@ -145,45 +155,46 @@
 
 
     <br><br><br>
-    
+
     <br><br>
 
-<div class="container mt-4">
-    <h2>Item Selling History</h2>
+    <div class="container mt-4">
+      <h2>Item Selling History</h2>
       <div class="row">
         <?php
-    include('./includes/connect.php');
+        include('./includes/connect.php');
 
         if (isset($_GET['seller_id']) && is_numeric($_GET['seller_id'])) {
-            $seller_id = $_GET['seller_id'];
-      
-        // Select items from Category 1
-        $sql = "SELECT * FROM item WHERE Seller_id = $seller_id";
-        $result = $conn->query($sql);
-    
+          $seller_id = $_GET['seller_id'];
 
-        if ($result->num_rows > 0) {
-          while ($row = $result->fetch_assoc()) {
+          // Select items from Category 1
+          $sql = "SELECT * FROM item WHERE Seller_id = $seller_id";
+          $result = $conn->query($sql);
+
+
+          if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
         ?>
-            <div class="col-md-4 mb-4">
-              <div class="product ">
-              <img src="<?php echo $row['Item_image']; ?>" class="card-img-top" alt="Item Image">
-            <div class="card-body">
-              <h5 class="card-title"><?php echo $row['Item_Title']; ?></h5>
-              <p class="card-text"><?php echo $row['Description']; ?></p>
-              <p class="card-text">Starting Bid: <?php echo $row['Starting_bid_price']; ?>LKR</p>
-              <p class="card-text">End Price: <?php echo $row['End_price']; ?>LKR</p>
-              <p class="card-text">End Date: <?php echo $row['End_date']; ?></p></div>
+              <div class="col-md-4 mb-4">
+                <div class="product ">
+                  <img src="<?php echo $row['Item_image']; ?>" class="card-img-top" alt="Item Image">
+                  <div class="card-body">
+                    <h5 class="card-title"><?php echo $row['Item_Title']; ?></h5>
+                    <p class="card-text"><?php echo $row['Description']; ?></p>
+                    <p class="card-text">Starting Bid: <?php echo $row['Starting_bid_price']; ?>LKR</p>
+                    <p class="card-text">End Price: <?php echo $row['End_price']; ?>LKR</p>
+                    <p class="card-text">End Date: <?php echo $row['End_date']; ?></p>
+                  </div>
+                </div>
               </div>
-            </div>
         <?php
+            }
+          } else {
+            echo "No items found in Category 1.";
           }
-        } else {
-          echo "No items found in Category 1.";
-        }
 
-        $conn->close();
-    }
+          $conn->close();
+        }
         ?>
       </div>
     </div>
@@ -191,10 +202,11 @@
 
 
     <?php
-  
-  include('footer.php');
 
-  ?>
+    include('footer.php');
+
+    ?>
 
 </body>
+
 </html>
