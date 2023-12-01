@@ -152,19 +152,7 @@
     <h2>Item Selling History</h2>
       <div class="row">
         <?php
-        // Replace with your database connection details
-        $servername = "localhost";
-        $username = "testuser";
-        $password = "testuser";
-        $dbname = "bidwiz";
-
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        // Check connection
-        if ($conn->connect_error) {
-          die("Connection failed: " . $conn->connect_error);
-        }
+    include('./includes/connect.php');
 
         if (isset($_GET['seller_id']) && is_numeric($_GET['seller_id'])) {
             $seller_id = $_GET['seller_id'];

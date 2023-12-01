@@ -165,45 +165,45 @@ session_start();
     <h2>Smart Devicess</h2>
 
     <div class="row">
-      <?php
-      $servername = "localhost";
-      $username = "testuser";
-      $password = "testuser";
-      $dbname = "bidwiz";
+    <?php
+    use classes;
+require_once("./php/classes/DbConnector.php");
 
-      $conn = new mysqli($servername, $username, $password, $dbname);
+// Create a DbConnector object
+$dbConnector = new classes\DbConnector();
 
-      if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-      }
+// Get a PDO database connection
+$conn = $dbConnector->getConnection();
 
-      $sql = "SELECT * FROM item WHERE Category_id = 1";
-      $result = $conn->query($sql);
+$sql = "SELECT * FROM item WHERE Category_id = 1";
+$result = $conn->query($sql);
 
-      if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-      ?>
-          <div class="col-md-4 mb-4">
+if ($result->rowCount() > 0) {
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        ?>
+        <div class="col-md-4 mb-4">
             <div class="product ">
-              <img src="<?php echo $row['Item_image']; ?>" alt="Item Image">
-              <div class="card-body">
-                <h5 class="card-title"><?php echo $row['Item_Title']; ?></h5>
-                <p class="card-text"><?php echo $row['Description']; ?></p>
-                <p class="card-text">Starting Bid: <?php echo $row['Starting_bid_price']; ?>LKR</p>
-                <p class="card-text">End Price: <?php echo $row['End_price']; ?>LKR</p>
-                <p class="card-text">End Date: <?php echo $row['End_date']; ?></p>
-                <a href="./php/item_description.php?item_id=<?php echo $row['ItemNumber']; ?>" class="btn btn-primary">Bid Now</a>
-              </div>
+                <img src="<?php echo $row['Item_image']; ?>" alt="Item Image">
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo $row['Item_Title']; ?></h5>
+                    <p class="card-text"><?php echo $row['Description']; ?></p>
+                    <p class="card-text">Starting Bid: <?php echo $row['Starting_bid_price']; ?>LKR</p>
+                    <p class="card-text">End Price: <?php echo $row['End_price']; ?>LKR</p>
+                    <p class="card-text">End Date: <?php echo $row['End_date']; ?></p>
+                    <a href="./php/item_description.php?item_id=<?php echo $row['ItemNumber']; ?>" class="btn btn-primary">Bid Now</a>
+                </div>
             </div>
-          </div>
-      <?php
-        }
-      } else {
-        echo "No items found in Category 1.";
-      }
+        </div>
+        <?php
+    }
+} else {
+    echo "No items found in Category 1.";
+}
 
-      $conn->close();
-      ?>
+// Close the database connection
+$conn = null;
+?>
+
     </div>
   </div>
 

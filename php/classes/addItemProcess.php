@@ -11,17 +11,11 @@ if (isset($_SESSION["seller"])) {
 }
 
 
-$servername = "localhost";
-$username = "testuser";
-$password = "testuser";
-$dbname = "bidwiz";
+include('../includes/connect.php');
 
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
 }
 
 
@@ -46,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $movieLocation = "../../images/items/". basename($itemImage);
 
 
-    $stmt = $conn->prepare("INSERT INTO item (Category_id, Item_Title, Starting_bid_price, Start_date, End_date, End_price, Seller_id, Description, Item_image, Item_keywords)
+    $stmt = $con->prepare("INSERT INTO item (Category_id, Item_Title, Starting_bid_price, Start_date, End_date, End_price, Seller_id, Description, Item_image, Item_keywords)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("isssssssss", $categoryId, $itemTitle, $startingBid, $startDate, $endDate, $endBid, $sellerId, $description, $targetFile, $itemKeywords);
 
@@ -63,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->close();
 }
 
-$conn->close();
+$con->close();
 ?>
 
 

@@ -105,21 +105,18 @@
       <div class="row">
         <?php
   
-        $servername = "localhost";
-        $username = "testuser";
-        $password = "testuser";
-        $dbname = "bidwiz";
+  include('./includes/connect.php');
 
       
-        $conn = new mysqli($servername, $username, $password, $dbname);
+
 
      
-        if ($conn->connect_error) {
-          die("Connection failed: " . $conn->connect_error);
+        if ($con->connect_error) {
+          die("Connection failed: " . $con->connect_error);
         }
 
         $sql = "SELECT * FROM item WHERE Category_id = 1";
-        $result = $conn->query($sql);
+        $result = $con->query($sql);
 
         if ($result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
@@ -133,7 +130,7 @@
               <p class="card-text">Starting Bid: <?php echo $row['Starting_bid_price']; ?>LKR</p>
               <p class="card-text">End Price: <?php echo $row['End_price']; ?>LKR</p>
               <p class="card-text">End Date: <?php echo $row['End_date']; ?></p>
-              <a href="./php/item_description.php?item_id=<?php echo $row['ItemNumber']; ?>" class="btn btn-primary">Bid Now</a>
+              <a href="./item_description.php?item_id=<?php echo $row['ItemNumber']; ?>" class="btn btn-primary">Bid Now</a>
             </div>
               </div>
             </div>
@@ -143,7 +140,7 @@
           echo "No items found in Category 1.";
         }
 
-        $conn->close();
+        $con->close();
         ?>
       </div>
     </div>

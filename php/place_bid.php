@@ -11,10 +11,7 @@ if (isset($_SESSION["seller"])) {
 	exit();
 }
 
-$servername = "localhost";
-$username = "testuser";
-$password = "testuser";
-$dbname = "bidwiz";
+include('./includes/connect.php');
 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
