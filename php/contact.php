@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
 require_once './classes/person.php';
-session_start();
+// session_start();
 
 ?>
 <head>

@@ -22,7 +22,7 @@ session_start();
 <body>
 
 	<navbar class="navbar__section">
-		<header class="nav__header">
+	<header class="nav__header">
 			<nav class="nav nav__container">
 				<div class="nav__data">
 					<a href="../index.php" class="nav__logo">
@@ -34,6 +34,7 @@ session_start();
 						<i class="ri-close-line nav__toggle-close"></i>
 					</div>
 				</div>
+				<div class="nav__menu" id="nav-menu">
 					<ul class="nav__list">
 						<li class="dropdown__item">
 						<a href="category.php" class="nav__link" style="text-decoration: none;">Categories</a>
@@ -66,6 +67,7 @@ session_start();
 						<li class="dropdown__item">
 							<?php
 							require_once './classes/person.php';
+							// session_start();
 
 							if (isset($_SESSION["buyer"])) {
 								$buyer = $_SESSION["buyer"];

@@ -385,51 +385,7 @@ session_start();
   include('footer.php');
 
   ?>
-    <!-- <footer>
-      <div class="container py-4 py-lg-5">
-          <div class="row justify-content-center">
-              <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
-                  <h3 class="fs-6">Popular Categories</h3>
-                  <ul class="list-unstyled">
-                      <li><a class="link-secondary" href="#">Web design</a></li>
-                      <li><a class="link-secondary" href="#">Development</a></li>
-                      <li><a class="link-secondary" href="#">Hosting</a></li>
-                  </ul>
-              </div>
-              <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
-                  <h3 class="fs-6">Quick Links</h3>
-                  <ul class="list-unstyled">
-                      <li><a class="link-secondary" href="#">About us</a></li>
-                      <li><a class="link-secondary" href="#">Contact</a></li>
-                      <li><a class="link-secondary" href="#">FAQ</a></li>
-                  </ul>
-              </div>
-              <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
-                  <h3 class="fs-6">Careers</h3>
-                  <ul class="list-unstyled">
-                      <li><a class="link-secondary" href="#">Job openings</a></li>
-                      <li><a class="link-secondary" href="#">Employee success</a></li>
-                      <li><a class="link-secondary" href="#">Benefits</a></li>
-                  </ul>
-              </div>
-              <div class="col-lg-3 text-center text-lg-start d-flex flex-column align-items-center order-first align-items-lg-start order-lg-last item social">
-                  <div class="fw-bold d-flex align-items-center mb-2"></div>
-                  <p class="text-muted">
-                      Sem eleifend donec molestie, integer quisque orci aliquam.
-                  </p>
-              </div>
-          </div>
-          <hr>
-          <div class="d-flex justify-content-between align-items-center pt-3">
-              <p class="text-muted mb-0">
-                  &copy; 2023 BidWiz.com
-              </p>
-              <ul class="list-inline mb-0">
-                
-              </ul>
-          </div>
-      </div>
-  </footer> -->
+
 
   <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

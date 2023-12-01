@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 require_once './php/classes/person.php';
-session_start();
+// session_start();
 
 ?>
 <html lang="en">
@@ -166,7 +166,6 @@ session_start();
 
     <div class="row">
     <?php
-    use classes;
 require_once("./php/classes/DbConnector.php");
 
 // Create a DbConnector object
