@@ -14,7 +14,7 @@ if (isset($_SESSION["seller"])) {
 include('./includes/connect.php');
 
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+// $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $item_id = $_POST['item_id'];
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
   $item_sql = "SELECT Starting_bid_price, End_price FROM item WHERE ItemNumber = $item_id";
-  $item_result = $conn->query($item_sql);
+  $item_result = $con->query($item_sql);
   $item_data = $item_result->fetch_assoc();
   $start_price = $item_data['Starting_bid_price'];
   $end_price = $item_data['End_price'];
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $insertBidSQL = "INSERT INTO bid (Bid_Price, Bid_Status, Buyer_id, Bid_Time, ItemNumber) 
                      VALUES ('$bidAmount', 1, 1, UNIX_TIMESTAMP(), $item_id)";
 
-    if ($conn->query($insertBidSQL) === TRUE) {
+    if ($con->query($insertBidSQL) === TRUE) {
         echo "Bid placed successfully.";
         header("Location: ./item_description.php?item_id=$item_id");
       } else {
